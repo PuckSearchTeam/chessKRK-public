@@ -1,0 +1,15 @@
+digraph  G {
+  n2 -> n6 [color=red] ;
+  n2 -> n9 [color=red] ;
+  n3 -> n6 [color=red] ;
+  n3 -> n8 [color=red] ;
+  n4 -> n9 [color=red] ;
+  n4 -> n11 [color=red] ;
+  n2 [shape=octagon,label="martin.shapes.rendering.Renderer.drawAllShapes"];
+  n3 [shape=octagon,label="martin.shapes.rendering.Renderer.drawCircle"];
+  n4 [shape=octagon,label="martin.shapes.rendering.Renderer.drawSquare"];
+  n6 [shape=box,label="martin.shapes.shapes.Circle"];
+  n8 [shape=doubleoctagon,label="martin.shapes.shapes.Circle.radius"];
+  n9 [shape=box,label="martin.shapes.shapes.Square"];
+  n11 [shape=doubleoctagon,label="martin.shapes.shapes.Square.side"];
+}

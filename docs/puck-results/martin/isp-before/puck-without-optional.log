@@ -1,0 +1,22 @@
+Violations:
+- hide deposit from transaction;
+Number of violations for the rule: 0
+- hide withdrawal from transaction;
+Number of violations for the rule: 0
+- hide transfer from transaction;
+Number of violations for the rule: 0
+- hide ui from transaction, deposit, withdrawal, transfer;
+   + martin.isp.withdrawal.WithdrawalTransaction.WithdrawalTransaction(UI) --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.isp.withdrawal.WithdrawalTransaction.ui --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.isp.transfer.TransferTransaction.TransferTransaction(UI) --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.isp.transfer.TransferTransaction.ui --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.isp.deposit.DepositTransaction.DepositTransaction(UI) --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.isp.deposit.DepositTransaction.ui --u--> martin.isp.ui.UI   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 6
+- containment between axes
+   + martin.isp.ui.UI --c--> martin.isp.ui.UI.requestDepositAmount()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + martin.isp.ui.UI --c--> martin.isp.ui.UI.requestWithdrawalAmount()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + martin.isp.ui.UI --c--> martin.isp.ui.UI.requestTransferAmount()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+Number of violations for the rule: 3
+Axis mismatches: 3 (0 reported above by hide clauses, 3 here)
+Total Number of violations: 9

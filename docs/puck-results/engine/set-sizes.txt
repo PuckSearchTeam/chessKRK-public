@@ -1,0 +1,9 @@
+Found 114 nodes under test source roots: (names omitted)
+Set tests: 114 named entities, 114 in the effective closure
+Set rules: 1 named entities, 119 in the effective closure
+Set policy: 2 named entities, 20 in the effective closure
+Set strategies: 1 named entities, 18 in the effective closure
+Set valuation: 2 named entities, 55 in the effective closure
+Set pieces: 1 named entities, 15 in the effective closure
+Set protocol: 1 named entities, 31 in the effective closure
+Set wiring: 1 named entities, 23 in the effective closure

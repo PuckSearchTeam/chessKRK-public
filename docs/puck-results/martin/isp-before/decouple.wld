@@ -1,0 +1,12 @@
+// Martin's ISP example (Agile Software Development, chapter 12), the violating version: one UI interface holds
+// the dialogue of every transaction. Four axes: the three transactions, each changing for its own banking reason,
+// and the user interface, which changes with the device. The interface's methods belong to the transactions they
+// serve: each is foreign to UI, a container of the ui axis (the fat interface, Clause 3), and each transaction
+// uses the ui axis, which changes more often than it (the uses, Clause 1).
+axis transaction = [martin.isp.transaction]
+axis deposit     = [martin.isp.deposit, martin.isp.ui.UI.requestDepositAmount()]
+axis withdrawal  = [martin.isp.withdrawal, martin.isp.ui.UI.requestWithdrawalAmount()]
+axis transfer    = [martin.isp.transfer, martin.isp.ui.UI.requestTransferAmount()]
+axis ui          = [martin.isp.ui]
+// the speed order: the transactions change for banking reasons, the user interface with the device
+speed transaction < deposit, withdrawal, transfer < ui;

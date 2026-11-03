@@ -1,0 +1,50 @@
+// ArgoUML, application module (argouml-app, 1,237 classes in 77 packages), context declared from the developers'
+// Cookbook as migrated into the project wiki (chapters 4 "ArgoUML Design, The Big Picture" and 5 "Inside the
+// subsystems"), by someone who did not write the program. The wiki's own words are quoted in the comments.
+//
+// Layers, bottom to top:
+//   Low-level subsystems: "infrastructure subsystems that just are there for every other subsystem to use - but
+//     they are not using any other part of ArgoUML": Internationalization, TaskManagement, Configuration,
+//     Swing extensions, The Model ("Everything within ArgoUML should access the Model subsystem through the
+//     interfaces in the org.argouml.model package").
+//   View and Control subsystems: Diagrams, GUI, Property panels, Explorer, Notation, Code Generation, Reverse
+//     Engineering, Module loader, Persistence, Profile ("rely on the information in the model subsystems").
+//     The GUI "has no knowledge of UML, Critics, Diagrams, or Model"; "the persistence subsystem depends on the
+//     kernel subsystem, and not vice versa".
+//   Loadable subsystems: Critics and checklists, OCL, the languages ("connected only through the interfaces
+//     provided by other subsystems", "enabled and disabled using the module loader").
+//   Top level: Application ("depends on other ArgoUML subsystems, but no other ArgoUML subsystem depends on the
+//     top level").
+axis lowlevel    = [org.argouml.i18n, org.argouml.taskmgmt, org.argouml.configuration, org.argouml.swingext,
+                    org.argouml.util]
+axis model       = [org.argouml.model]
+axis kernel      = [org.argouml.kernel]
+axis gui         = [org.argouml.ui, org.argouml.gefext, org.argouml.language.ui]
+axis diagrams    = [org.argouml.uml.diagram]
+axis panels      = [org.argouml.uml.ui]
+axis uml         = [org.argouml.uml, org.argouml.uml.util]
+axis notation    = [org.argouml.notation]
+axis codegen     = [org.argouml.uml.generator]
+axis reveng      = [org.argouml.uml.reveng]
+axis persistence = [org.argouml.persistence]
+axis profile     = [org.argouml.profile]
+axis modules     = [org.argouml.moduleloader]
+axis cognitive   = [org.argouml.cognitive, org.argouml.uml.cognitive, org.argouml.pattern.cognitive.critics]
+axis ocl         = [org.argouml.ocl]
+axis application = [org.argouml.application]
+
+// The documented order: the low-level layer changes least (nothing of ArgoUML below it), then the model and the
+// kernel, then the view-and-control subsystems, unordered among themselves, then the loadable ones, which only
+// use the others, then the application, which "no other ArgoUML subsystem depends on".
+speed lowlevel < model < kernel < gui, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules
+      < cognitive, ocl < application;
+
+// Decisions written in the documentation: the GUI knows nothing of the model, the diagrams, UML or the critics.
+hide model, diagrams, uml, panels, cognitive from gui;
+friend tests of all;
+
+// BEGIN optional: the view-and-control subsystems kept apart from one another (ADP), which the documentation does
+// not state; the Diagrams page lists the GUI and Notation among the subsystems it uses, so this block will report
+// those uses as well.
+apart gui, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules;
+// END optional

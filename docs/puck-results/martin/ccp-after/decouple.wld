@@ -1,0 +1,5 @@
+// CCP, the repaired version: ShapeRenderer moved to a package of the user-interface axis.
+axis shapes = [martin.ccp.shapes]
+axis ui     = [martin.ccp.ui]
+// the speed order; it generates hide ui from shapes
+speed shapes < ui;

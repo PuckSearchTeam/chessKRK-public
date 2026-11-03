@@ -1,0 +1,9 @@
+digraph  G {
+  n24 -> n48 [color=red, style=dotted] ;
+  n24 -> n55 [color=red, style=dotted] ;
+  n24 -> n47 [color=red, style=dotted] ;
+  n48 [shape=octagon,label="org.chesskrk.naive.Engine.bestMove"];
+  n55 [shape=doubleoctagon,label="org.chesskrk.naive.Engine.tablebase"];
+  n24 [shape=box,label="org.chesskrk.naive.Engine"];
+  n47 [shape=octagon,label="org.chesskrk.naive.Engine.tablebase"];
+}

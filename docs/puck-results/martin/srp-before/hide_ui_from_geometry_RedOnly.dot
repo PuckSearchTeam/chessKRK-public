@@ -1,0 +1,5 @@
+digraph  G {
+  n6 -> n9 [color=red, style=dotted] ;
+  n6 [shape=box,label="martin.srp.geometry.Rectangle"];
+  n9 [shape=octagon,label="martin.srp.geometry.Rectangle.draw"];
+}

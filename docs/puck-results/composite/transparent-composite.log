@@ -1,0 +1,15 @@
+Violations:
+- hide editing from kinds;
+   + composite.kinds.Leaf --c--> composite.kinds.Leaf.add(Component)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + composite.kinds.Leaf --c--> composite.kinds.Leaf.remove(Component)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + composite.kinds.Leaf --c--> composite.kinds.Leaf.children()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + composite.kinds.Component --c--> composite.kinds.Component.add(Component)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + composite.kinds.Component --c--> composite.kinds.Component.remove(Component)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + composite.kinds.Component --c--> composite.kinds.Component.children()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+Number of violations for the rule: 6
+- hide rendering from kinds;
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 6 (6 reported above by hide clauses, 0 here)
+Total Number of violations: 6

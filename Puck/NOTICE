@@ -1,0 +1,24 @@
+Puck, an IntelliJ plugin that checks coupling constraints written in Weland.
+Copyright (C) 2024-2026 the Puck authors, LIP6 (Sorbonne Université, CNRS).
+
+Puck is free software: you can redistribute it and/or modify it under the terms
+of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.
+See the LICENSE file in this directory.
+
+Puck bundles code from other projects, kept under their own licenses:
+
+- src/main/java/fr/lip6/move/gal/util/ (sparse-matrix graph representation):
+  from ITS-tools, LIP6; MatrixCol.java and Pair.java carry the header of the
+  project group APT, Copyright (C) 2012-2013, GNU General Public License
+  version 2 or later. They are redistributed here under version 3 of the GPL.
+- src/main/java/android/util/, src/main/java/com/android/internal/util/,
+  src/main/java/libcore/util/ (sparse arrays): The Android Open Source Project,
+  Apache License, Version 2.0.
+- jflex-1.9.1.jar (lexer generator, used at build time only): JFlex, BSD
+  3-clause license (LICENSE_JFLEX inside the jar).
+- idea-flex.skeleton (JFlex skeleton for IntelliJ lexers): JetBrains, from the
+  IntelliJ Community sources, Apache License, Version 2.0.
+
+The plugin is built against the IntelliJ Platform SDK (JetBrains, Apache
+License, Version 2.0), which is not redistributed here.

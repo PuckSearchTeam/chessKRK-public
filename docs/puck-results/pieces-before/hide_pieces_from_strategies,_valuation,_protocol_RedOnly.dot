@@ -1,0 +1,7 @@
+digraph  G {
+  n91 -> n169 [color=red] ;
+  n91 -> n170 [color=red] ;
+  n169 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.QUEEN"];
+  n170 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.ROOK"];
+  n91 [shape=octagon,label="org.chesskrk.adapter.heuristic.MatingNetHeuristic.smallestBox"];
+}

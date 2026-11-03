@@ -1,0 +1,8 @@
+Violations:
+- hide ui from geometry;
+   + martin.srp.geometry.Rectangle --c--> martin.srp.geometry.Rectangle.draw(Canvas)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+Number of violations for the rule: 1
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 1 (1 reported above by hide clauses, 0 here)
+Total Number of violations: 1

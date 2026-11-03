@@ -1,0 +1,11 @@
+Violations:
+- hide apps from core, experimental;
+Number of violations for the rule: 0
+- hide experimental from core;
+   + martin.sdp.core.Engine.run(int) --u--> martin.sdp.experimental.Tuner.tune(int)   [SDP: the same inversion, or move the dependency to an entity that is cheaper to change]
+   + martin.sdp.core.Engine.tuner --u--> martin.sdp.experimental.Tuner   [SDP: the same inversion, or move the dependency to an entity that is cheaper to change]
+Number of violations for the rule: 2
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 2

@@ -1,0 +1,6 @@
+// Martin's OCP example (Agile Software Development, chapter 9), the violating version: Client uses the
+// concrete Server. Two axes: the servers, which change more often than the client (a new server is the change).
+axis client  = [martin.ocp.client]
+axis servers = [martin.ocp.server]
+// the speed order; it generates hide servers from client
+speed client < servers;

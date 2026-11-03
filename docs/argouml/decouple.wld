@@ -1,0 +1,50 @@
+// ArgoUML, the application module with the Model subsystem (argouml-app and argouml-core-model, 1,322 classes in
+// 78 packages), context declared from the developers' Cookbook as migrated into the project wiki (chapters 4
+// "ArgoUML Design, The Big Picture" and 5 "Inside the subsystems"), by someone who did not write the program.
+// The wiki's own words are quoted. A package name does not include its subpackages, so each axis lists all of
+// its packages (generated from axes.map by longest prefix).
+//
+// Layers, bottom to top:
+//   Low-level subsystems: "infrastructure subsystems that just are there for every other subsystem to use - but
+//     they are not using any other part of ArgoUML": Internationalization, TaskManagement, Configuration,
+//     Swing extensions, The Model ("Everything within ArgoUML should access the Model subsystem through the
+//     interfaces in the org.argouml.model package").
+//   View and Control subsystems: Diagrams, GUI, Property panels, Explorer, Notation, Code Generation, Reverse
+//     Engineering, Module loader, Persistence, Profile: they "rely on the information in the model subsystems".
+//     The GUI "has no knowledge of UML, Critics, Diagrams, or Model"; "the persistence subsystem depends on the
+//     kernel subsystem, and not vice versa".
+//   Loadable subsystems: Critics and checklists, OCL ("connected only through the interfaces provided by other
+//     subsystems", "enabled and disabled using the module loader").
+//   Top level: Application ("depends on other ArgoUML subsystems, but no other ArgoUML subsystem depends on the
+//     top level").
+axis lowlevel    = [org.argouml.configuration, org.argouml.i18n, org.argouml.swingext, org.argouml.taskmgmt, org.argouml.util, org.argouml.util.logging, org.argouml.util.osdep]
+axis model       = [org.argouml.model]
+axis kernel      = [org.argouml.kernel]
+axis gui         = [org.argouml.gefext, org.argouml.language.ui, org.argouml.ui, org.argouml.ui.cmd, org.argouml.ui.explorer, org.argouml.ui.explorer.rules, org.argouml.ui.targetmanager]
+axis diagrams    = [org.argouml.uml.diagram, org.argouml.uml.diagram.activity, org.argouml.uml.diagram.activity.layout, org.argouml.uml.diagram.activity.ui, org.argouml.uml.diagram.collaboration, org.argouml.uml.diagram.collaboration.ui, org.argouml.uml.diagram.deployment, org.argouml.uml.diagram.deployment.ui, org.argouml.uml.diagram.layout, org.argouml.uml.diagram.state, org.argouml.uml.diagram.state.ui, org.argouml.uml.diagram.static_structure, org.argouml.uml.diagram.static_structure.layout, org.argouml.uml.diagram.static_structure.ui, org.argouml.uml.diagram.ui, org.argouml.uml.diagram.use_case, org.argouml.uml.diagram.use_case.ui]
+axis panels      = [org.argouml.uml.ui, org.argouml.uml.ui.behavior.activity_graphs, org.argouml.uml.ui.behavior.collaborations, org.argouml.uml.ui.behavior.common_behavior, org.argouml.uml.ui.behavior.state_machines, org.argouml.uml.ui.behavior.use_cases, org.argouml.uml.ui.foundation.core, org.argouml.uml.ui.foundation.extension_mechanisms, org.argouml.uml.ui.model_management]
+axis uml         = [org.argouml.uml, org.argouml.uml.util, org.argouml.uml.util.namespace]
+axis notation    = [org.argouml.notation, org.argouml.notation.providers, org.argouml.notation.providers.java, org.argouml.notation.providers.uml, org.argouml.notation.ui]
+axis codegen     = [org.argouml.uml.generator, org.argouml.uml.generator.ui]
+axis reveng      = [org.argouml.uml.reveng, org.argouml.uml.reveng.ui]
+axis persistence = [org.argouml.persistence]
+axis profile     = [org.argouml.profile, org.argouml.profile.init, org.argouml.profile.internal, org.argouml.profile.internal.ocl, org.argouml.profile.internal.ocl.uml14, org.argouml.profile.internal.ui]
+axis modules     = [org.argouml.moduleloader]
+axis cognitive   = [org.argouml.cognitive, org.argouml.cognitive.checklist, org.argouml.cognitive.checklist.ui, org.argouml.cognitive.critics, org.argouml.cognitive.critics.ui, org.argouml.cognitive.ui, org.argouml.pattern.cognitive.critics, org.argouml.uml.cognitive, org.argouml.uml.cognitive.checklist, org.argouml.uml.cognitive.critics]
+axis ocl         = [org.argouml.ocl]
+axis application = [org.argouml.application, org.argouml.application.api, org.argouml.application.events, org.argouml.application.helpers, org.argouml.application.security]
+
+// The documented order: the low-level layer changes least (nothing of ArgoUML below it), then the model (a
+// low-level subsystem the others "rely on"), then the kernel (the persistence depends on it), then the
+// view-and-control subsystems, unordered among themselves, then the loadable ones, which only use the others,
+// then the application, which "no other ArgoUML subsystem depends on".
+speed lowlevel < model < kernel < gui, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules < cognitive, ocl < application;
+
+// A decision written in the documentation: the GUI "has no knowledge of UML, Critics, Diagrams, or Model".
+hide model, diagrams, uml, panels, cognitive from gui;
+friend tests of all;
+
+// BEGIN optional: ADP, the view-and-control subsystems kept apart from one another, which the documentation
+// does not state (the Diagrams page lists the GUI and Notation among the subsystems it uses).
+apart gui, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules;
+// END optional

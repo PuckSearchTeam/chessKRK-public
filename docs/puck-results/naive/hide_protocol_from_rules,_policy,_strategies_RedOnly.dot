@@ -1,0 +1,26 @@
+digraph  G {
+  n0 -> n19 [color=red, style=dotted] ;
+  n24 -> n33 [color=red, style=dotted] ;
+  n24 -> n54 [color=red, style=dotted] ;
+  n24 -> n42 [color=red, style=dotted] ;
+  n24 -> n43 [color=red, style=dotted] ;
+  n24 -> n44 [color=red, style=dotted] ;
+  n24 -> n28 [color=red, style=dotted] ;
+  n24 -> n29 [color=red, style=dotted] ;
+  n48 -> n33 [color=red] ;
+  n48 -> n19 [color=red] ;
+  n48 -> n21 [color=red] ;
+  n48 -> n54 [color=red] ;
+  n0 [shape=folder,label="naive"];
+  n48 [shape=octagon,label="org.chesskrk.naive.Engine.bestMove"];
+  n33 [shape=octagon,label="org.chesskrk.naive.Engine.moveName"];
+  n19 [shape=box,label="org.chesskrk.naive.Main"];
+  n21 [shape=octagon,label="org.chesskrk.naive.Main.send"];
+  n54 [shape=doubleoctagon,label="org.chesskrk.naive.Engine.valid"];
+  n24 [shape=box,label="org.chesskrk.naive.Engine"];
+  n42 [shape=octagon,label="org.chesskrk.naive.Engine.clear"];
+  n43 [shape=octagon,label="org.chesskrk.naive.Engine.setPosition"];
+  n44 [shape=octagon,label="org.chesskrk.naive.Engine.parseFen"];
+  n28 [shape=octagon,label="org.chesskrk.naive.Engine.parseSquare"];
+  n29 [shape=octagon,label="org.chesskrk.naive.Engine.squareName"];
+}

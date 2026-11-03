@@ -1,0 +1,13 @@
+Violations:
+- hide deposit from transaction;
+Number of violations for the rule: 0
+- hide withdrawal from transaction;
+Number of violations for the rule: 0
+- hide transfer from transaction;
+Number of violations for the rule: 0
+- hide ui from transaction, deposit, withdrawal, transfer;
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 0

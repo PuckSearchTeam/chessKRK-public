@@ -1,0 +1,7 @@
+digraph  G {
+  n0 -> n43 [color=red, style=dotted] ;
+  n11 -> n43 [color=red] ;
+  n0 [shape=folder,label="naive"];
+  n43 [shape=box,label="org.chesskrk.naive.Tablebase"];
+  n11 [shape=box,label="org.chesskrk.naive.Engine"];
+}

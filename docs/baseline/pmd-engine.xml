@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.7.0" timestamp="2026-10-19T16:42:58.927">
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\adapter\pieces\StandardPieces.java">
+<violation beginline="16" endline="16" begincolumn="14" endcolumn="19" rule="DataClass" ruleset="Design" package="org.chesskrk.adapter.pieces" class="StandardPieces" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#dataclass" priority="3">
+The class 'StandardPieces' is suspected to be a Data Class (WOC=0.000%, NOPA=12, NOAM=0, WMC=1)
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\adapter\tablebase\RetrogradeTablebase.java">
+<violation beginline="41" endline="41" begincolumn="14" endcolumn="19" rule="GodClass" ruleset="Design" package="org.chesskrk.adapter.tablebase" class="RetrogradeTablebase" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#godclass" priority="3">
+Possible God Class (WMC=88, ATFD=24, TCC=17.544%)
+</violation>
+<violation beginline="41" endline="41" begincolumn="14" endcolumn="19" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.tablebase" class="RetrogradeTablebase" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The class 'RetrogradeTablebase' has a total cyclomatic complexity of 88 (highest 15).
+</violation>
+<violation beginline="41" endline="370" begincolumn="65" endcolumn="2" rule="TooManyMethods" ruleset="Design" package="org.chesskrk.adapter.tablebase" class="RetrogradeTablebase" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="147" endline="147" begincolumn="39" endcolumn="47" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.tablebase" class="RetrogradeTablebase" method="readFrom" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'readFrom(Path, Material, Map&lt;Material, EndgameOracle&gt;)' has a cyclomatic complexity of 13.
+</violation>
+<violation beginline="216" endline="216" begincolumn="18" endcolumn="25" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.tablebase" class="RetrogradeTablebase" method="compute" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'compute()' has a cyclomatic complexity of 15.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\adapter\uci\FenCodec.java">
+<violation beginline="25" endline="25" begincolumn="21" endcolumn="26" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.uci" class="FenCodec" method="parse" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'parse(String)' has a cyclomatic complexity of 21.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\adapter\uci\UciSession.java">
+<violation beginline="68" endline="68" begincolumn="17" endcolumn="23" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.uci" class="UciSession" method="handle" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'handle(String)' has a cyclomatic complexity of 15.
+</violation>
+<violation beginline="122" endline="122" begincolumn="18" endcolumn="32" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.adapter.uci" class="UciSession" method="handlePosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'handlePosition(List&lt;String&gt;)' has a cyclomatic complexity of 15.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\domain\PieceCatalog.java">
+<violation beginline="18" endline="18" begincolumn="12" endcolumn="24" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.domain" class="PieceCatalog" method="PieceCatalog" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The constructor 'PieceCatalog(List&lt;PieceType&gt;)' has a cyclomatic complexity of 11.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\domain\PieceType.java">
+<violation beginline="58" endline="58" begincolumn="21" endcolumn="28" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.domain" class="PieceType" method="attacks" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'attacks(Square, Square, Predicate&lt;Square&gt;)' has a cyclomatic complexity of 12.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\src\main\java\org\chesskrk\domain\Position.java">
+<violation beginline="17" endline="192" begincolumn="29" endcolumn="2" rule="TooManyMethods" ruleset="Design" package="org.chesskrk.domain" class="Position" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,25 @@
+// The axes of the engine as refactored from Before (paper, Section 5.5): the rings of Section 5.2 with one
+// strategy and no piece axis. pieces is an axis of the context with no entity yet. The clauses are those
+// of the engine, unchanged; the sets grow afterwards (a heuristic in valuation, the pieces package) as
+// features are added.
+axis rules      = [org.chesskrk.domain]
+axis policy     = [org.chesskrk.application.port.in, org.chesskrk.application.port.out]
+axis strategies = [org.chesskrk.application.usecase]
+axis valuation  = [org.chesskrk.adapter.tablebase]
+axis pieces     = []
+axis protocol   = [org.chesskrk.adapter.uci]
+axis wiring     = [org.chesskrk.infrastructure]
+
+// The speed of change (paper, Section 4.3), slowest axis first; the clauses of the Dependency Rule follow:
+// each axis is hidden from the axes that change less often.
+speed rules < policy < strategies < valuation, pieces, protocol < wiring;
+
+// Decisions of the architect.
+friend wiring of all;   // the composition root must see everything to assemble it
+friend tests of all;    // the tests are neither wiring nor an axis
+
+// BEGIN optional: ADP. Keeping the three unordered axes apart hides each from the others, so no pair is
+// permitted in both directions, the permitted relation between axes is acyclic and every cycle of uses
+// through two axes contains a violation (paper, Proposition 2).
+apart valuation, pieces, protocol;
+// END optional: ADP

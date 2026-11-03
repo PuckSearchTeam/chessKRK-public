@@ -1,0 +1,6 @@
+// The DIP example (Section 3 of the paper), the repaired version: a Vehicle interface owned by the manager, which the vehicles implement.
+// Two axes: the vehicles change more often (new kinds) and are easier to change than the manager.
+axis transport = [martin.dip.transport]
+axis vehicles  = [martin.dip.vehicles]
+// the speed order; it generates hide vehicles from transport
+speed transport < vehicles;

@@ -1,0 +1,9 @@
+// Martin's ISP example, the repaired version: one interface per transaction, each in the package of the client it
+// serves (Extract Interface into the client's axis); the screen implements the three. The same axes and the same
+// order as the violating version; nothing is foreign, and the user interface, the faster axis, uses the slower ones.
+axis transaction = [martin.isp.transaction]
+axis deposit     = [martin.isp.deposit]
+axis withdrawal  = [martin.isp.withdrawal]
+axis transfer    = [martin.isp.transfer]
+axis ui          = [martin.isp.ui]
+speed transaction < deposit, withdrawal, transfer < ui;

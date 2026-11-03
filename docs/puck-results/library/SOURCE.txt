@@ -1,0 +1,1 @@
+ddd-by-examples/library, commit 5225ff7 (https://github.com/ddd-by-examples/library), MIT licence, checked out 2026-10-09; only the context file and the logs are kept here.

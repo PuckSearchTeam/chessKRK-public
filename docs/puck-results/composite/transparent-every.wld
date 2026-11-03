@@ -1,0 +1,11 @@
+// The Composite pattern, transparent variant, under the context "every component supports child management, and a
+// client that edits the structure knows only the abstraction" (Gamma et al.'s transparency, Johnson's C++ case).
+// Three axes: the kinds of components, the clients that edit the structure, the clients that render it; the
+// kinds the slower axis. Nothing in the kinds is tagged: add, remove and children are every kind's business.
+axis kinds     = [composite.kinds]
+axis editing   = [composite.editing]
+axis rendering = [composite.rendering]
+speed kinds < editing, rendering;
+// The decision: an editing client treats every component alike, so it must not name the Composite.
+set theComposite = [composite.kinds.Composite]
+hide theComposite from editing;

@@ -1,0 +1,12 @@
+// The Composite pattern, transparent variant, under the context "child management is the composite's business":
+// the child-management members that Component and Leaf declare serve the editing clients only (a leaf has no
+// children), so they are tagged with the editing axis and are foreign to the kinds that hold them, the reading of
+// the ISP that tags each method with the client it serves (paper, Section 3.4). Composite keeps its own.
+axis kinds     = [composite.kinds]
+axis editing   = [composite.editing,
+                  composite.kinds.Component.add(Component), composite.kinds.Component.remove(Component),
+                  composite.kinds.Component.children(),
+                  composite.kinds.Leaf.add(Component), composite.kinds.Leaf.remove(Component),
+                  composite.kinds.Leaf.children()]
+axis rendering = [composite.rendering]
+speed kinds < editing, rendering;

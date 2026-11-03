@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.chesskrk</groupId>
+  <artifactId>krk-oracles</artifactId>
+  <version>0.1.0</version>
+  <packaging>jar</packaging>
+  <name>External oracles for the architecture of the engine</name>
+  <description>Runs codifications of the architecture written by others (jMolecules classical onion and hexagonal rules) on the compiled classes of the engine and of After/. Separate module because the jMolecules rules need ArchUnit 0.23.</description>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.11.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jmolecules.integrations</groupId>
+      <artifactId>jmolecules-archunit</artifactId>
+      <version>1.6.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- the annotation modules the rules refer to; optional in jmolecules-archunit, hence declared here -->
+    <dependency><groupId>org.jmolecules</groupId><artifactId>jmolecules-onion-architecture</artifactId><version>1.6.0</version><scope>test</scope></dependency>
+    <dependency><groupId>org.jmolecules</groupId><artifactId>jmolecules-hexagonal-architecture</artifactId><version>1.6.0</version><scope>test</scope></dependency>
+    <dependency><groupId>org.jmolecules</groupId><artifactId>jmolecules-layered-architecture</artifactId><version>1.6.0</version><scope>test</scope></dependency>
+    <dependency><groupId>org.jmolecules</groupId><artifactId>jmolecules-ddd</artifactId><version>1.6.0</version><scope>test</scope></dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.5.2</version>
+        <configuration>
+          <trimStackTrace>false</trimStackTrace>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

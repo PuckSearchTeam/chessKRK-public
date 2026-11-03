@@ -1,0 +1,10 @@
+// The Composite pattern, safe variant, under the context "every component supports child management, and a
+// client that edits the structure knows only the abstraction" (Gamma et al.'s transparency, Johnson's C++ case).
+// The same file as transparent/decouple.wld: the context does not depend on the variant.
+axis kinds     = [composite.kinds]
+axis editing   = [composite.editing]
+axis rendering = [composite.rendering]
+speed kinds < editing, rendering;
+// The decision: an editing client treats every component alike, so it must not name the Composite.
+set theComposite = [composite.kinds.Composite]
+hide theComposite from editing;

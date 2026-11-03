@@ -1,0 +1,6 @@
+// CCP, the violating version: the package of the shapes also holds ShapeRenderer, a user-interface class.
+// The package is tagged shapes; ShapeRenderer is foreign to it.
+axis shapes = [martin.ccp.shapes]
+axis ui     = [martin.ccp.shapes.ShapeRenderer]
+// the speed order; it generates hide ui from shapes
+speed shapes < ui;

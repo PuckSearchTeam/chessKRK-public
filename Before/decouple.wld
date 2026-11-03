@@ -1,0 +1,34 @@
+// The axes of the naive engine (paper, Section 5.5). The package is tagged rules; Main and Tablebase are
+// tagged with their own axis, as are the members of Engine that do not follow their class. A foreign entity and its scope leave
+// the closure of the enclosing axis (paper, Section 4.3). policy and pieces are axes of the context with no
+// entity yet: there is no port and no variant piece. The clauses are those of the engine, unchanged.
+axis rules      = [org.chesskrk.naive]
+axis policy     = []
+axis strategies = [org.chesskrk.naive.Engine.bestMove(),
+                  org.chesskrk.naive.Engine.tablebase(),
+                  org.chesskrk.naive.Engine.tablebase]
+axis valuation  = [org.chesskrk.naive.Tablebase]
+axis pieces     = []
+axis protocol   = [org.chesskrk.naive.Main,
+                  org.chesskrk.naive.Engine.setPosition(String),
+                  org.chesskrk.naive.Engine.clear(),
+                  org.chesskrk.naive.Engine.parseFen(String),
+                  org.chesskrk.naive.Engine.parseSquare(String),
+                  org.chesskrk.naive.Engine.squareName(int),
+                  org.chesskrk.naive.Engine.moveName(int),
+                  org.chesskrk.naive.Engine.valid]
+axis wiring     = [org.chesskrk.naive.Main.ENGINE, org.chesskrk.naive.Main.OUT]
+
+// The speed of change (paper, Section 4.3), slowest axis first; the clauses of the Dependency Rule follow:
+// each axis is hidden from the axes that change less often.
+speed rules < policy < strategies < valuation, pieces, protocol < wiring;
+
+// Decisions of the architect.
+friend wiring of all;   // the composition root must see everything to assemble it
+friend tests of all;    // the tests are neither wiring nor an axis
+
+// BEGIN optional: ADP. Keeping the three unordered axes apart hides each from the others, so no pair is
+// permitted in both directions, the permitted relation between axes is acyclic and every cycle of uses
+// through two axes contains a violation (paper, Proposition 2).
+apart valuation, pieces, protocol;
+// END optional: ADP

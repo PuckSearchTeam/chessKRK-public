@@ -1,0 +1,52 @@
+Violations:
+- hide policy from rules;
+Number of violations for the rule: 0
+- hide strategies from rules, policy;
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.bestMove()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.tablebase   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.tablebase()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+Number of violations for the rule: 3
+- hide valuation from rules, policy, strategies;
+   + org.chesskrk.naive --c--> org.chesskrk.naive.Tablebase   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --u--> org.chesskrk.naive.Tablebase   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.tablebase() --u--> org.chesskrk.naive.Tablebase   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.tablebase() --u--> org.chesskrk.naive.Tablebase.Tablebase()   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Tablebase   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Tablebase.plies(int,int,int,boolean)   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.tablebase --u--> org.chesskrk.naive.Tablebase   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 7
+- hide pieces from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide protocol from rules, policy, strategies;
+   + org.chesskrk.naive --c--> org.chesskrk.naive.Main   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.moveName(int)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.valid   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.clear()   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.setPosition(String)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.parseFen(String)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.parseSquare(String)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine --c--> org.chesskrk.naive.Engine.squareName(int)   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Engine.moveName(int)   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Main   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Main.send(String)   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Engine.bestMove() --u--> org.chesskrk.naive.Engine.valid   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 12
+- hide wiring from rules, policy, strategies, valuation, pieces, protocol;
+   + org.chesskrk.naive.Main --c--> org.chesskrk.naive.Main.OUT   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Main --c--> org.chesskrk.naive.Main.ENGINE   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.naive.Main.main(String[]) --u--> org.chesskrk.naive.Main.ENGINE   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.naive.Main.send(String) --u--> org.chesskrk.naive.Main.OUT   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 4
+- hide valuation from pieces, protocol;
+Number of violations for the rule: 0
+- hide pieces from valuation, protocol;
+Number of violations for the rule: 0
+- hide protocol from valuation, pieces;
+   + org.chesskrk.naive.Tablebase --u--> org.chesskrk.naive.Main   [OCP, DIP, between axes kept apart: Extract Interface into the user's axis and redirect the use]
+   + org.chesskrk.naive.Tablebase.Tablebase() --u--> org.chesskrk.naive.Main   [OCP, DIP, between axes kept apart: Extract Interface into the user's axis and redirect the use]
+   + org.chesskrk.naive.Tablebase.Tablebase() --u--> org.chesskrk.naive.Main.send(String)   [OCP, DIP, between axes kept apart: Extract Interface into the user's axis and redirect the use]
+Number of violations for the rule: 3
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 14 (14 reported above by hide clauses, 0 here)
+Total Number of violations: 29

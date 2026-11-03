@@ -1,0 +1,13 @@
+digraph  G {
+  n34 -> n43 [color=red] ;
+  n34 -> n44 [color=red] ;
+  n35 -> n43 [color=red] ;
+  n35 -> n46 [color=red] ;
+  n42 -> n43 [color=red] ;
+  n34 [shape=octagon,label="org.chesskrk.naive.Engine.tablebase"];
+  n35 [shape=octagon,label="org.chesskrk.naive.Engine.bestMove"];
+  n42 [shape=doubleoctagon,label="org.chesskrk.naive.Engine.tablebase"];
+  n43 [shape=box,label="org.chesskrk.naive.Tablebase"];
+  n44 [shape=octagon,label="org.chesskrk.naive.Tablebase.Tablebase"];
+  n46 [shape=octagon,label="org.chesskrk.naive.Tablebase.plies"];
+}

@@ -1,0 +1,6 @@
+// Martin's SRP example (Agile Software Development, chapter 8), the violating version: Rectangle holds area()
+// (geometry) and draw() (user interface). Two axes, geometry changing less often than the user interface.
+axis geometry = [martin.srp.geometry]
+axis ui       = [martin.srp.ui, martin.srp.geometry.Rectangle.draw(Canvas)]
+// the speed order; it generates hide ui from geometry
+speed geometry < ui;

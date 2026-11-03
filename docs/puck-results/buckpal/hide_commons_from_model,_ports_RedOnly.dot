@@ -1,0 +1,5 @@
+digraph  G {
+  n237 -> n33 [color=red] ;
+  n33 [shape=octagon,label="io.reflectoring.buckpal.common.validation.Validation.validate"];
+  n237 [shape=octagon,label="io.reflectoring.buckpal.application.port.in.SendMoneyCommand.SendMoneyCommand"];
+}

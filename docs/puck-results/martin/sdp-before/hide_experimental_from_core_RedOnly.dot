@@ -1,0 +1,8 @@
+digraph  G {
+  n8 -> n5 [color=red] ;
+  n9 -> n4 [color=red] ;
+  n4 [shape=box,label="martin.sdp.experimental.Tuner"];
+  n5 [shape=octagon,label="martin.sdp.experimental.Tuner.tune"];
+  n8 [shape=octagon,label="martin.sdp.core.Engine.run"];
+  n9 [shape=doubleoctagon,label="martin.sdp.core.Engine.tuner"];
+}

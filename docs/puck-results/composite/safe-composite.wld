@@ -1,0 +1,7 @@
+// The Composite pattern, safe variant, under the context "child management is the composite's business". The
+// transparent variant's file tags the child-management members of Component and Leaf with the editing axis they
+// serve; here there are none to tag, Composite alone declaring them, and they are its own.
+axis kinds     = [composite.kinds]
+axis editing   = [composite.editing]
+axis rendering = [composite.rendering]
+speed kinds < editing, rendering;

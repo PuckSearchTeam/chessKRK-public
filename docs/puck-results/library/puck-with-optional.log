@@ -1,0 +1,29 @@
+Violations:
+- hide catalogue from commons;
+Number of violations for the rule: 0
+- hide model from commons, catalogue;
+Number of violations for the rule: 0
+- hide application from commons, catalogue, model;
+Number of violations for the rule: 0
+- hide infrastructure from commons, catalogue, model, application;
+Number of violations for the rule: 0
+- hide web from commons, catalogue, model, application;
+Number of violations for the rule: 0
+- hide wiring from commons, catalogue, model, application, infrastructure, web;
+   + io.pillopl.library.lending.patron.infrastructure --c--> io.pillopl.library.lending.patron.infrastructure.PatronConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.catalogue --c--> io.pillopl.library.catalogue.CatalogueConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.catalogue --c--> io.pillopl.library.catalogue.CatalogueDatabaseConfig   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.commons.events.publisher --c--> io.pillopl.library.commons.events.publisher.DomainEventsConfig   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.lending.book.infrastructure --c--> io.pillopl.library.lending.book.infrastructure.BookConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.lending.patronprofile.web --c--> io.pillopl.library.lending.patronprofile.web.WebConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.lending.patronprofile.infrastructure --c--> io.pillopl.library.lending.patronprofile.infrastructure.PatronProfileConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + io.pillopl.library.lending.dailysheet.infrastructure --c--> io.pillopl.library.lending.dailysheet.infrastructure.DailySheetConfiguration   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+Number of violations for the rule: 8
+- hide infrastructure from web;
+Number of violations for the rule: 0
+- hide web from infrastructure;
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 8 (8 reported above by hide clauses, 0 here)
+Total Number of violations: 8

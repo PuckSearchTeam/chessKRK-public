@@ -1,0 +1,36 @@
+// ArgoUML, second iteration of the context. The first (decouple.wld) took the wiki's layering literally; its
+// violations showed two places where the wiki leaves the mapping open, resolved here as the wiki itself suggests:
+//   - the Explorer is a subsystem of its own ("org.argouml.ui.explorer and sub-packages", View and Control), not
+//     part of the GUI, so the rule that the GUI knows nothing of the model does not cover it;
+//   - org.argouml.application.api, .events and .helpers are the plug-in interfaces, events and base classes that
+//     every subsystem uses (the wiki places the module interfaces in org.argouml.application.api); they are
+//     infrastructure, not the top level, which keeps org.argouml.application and its security package;
+//   - the kernel (Project), which the wiki has no page for, uses the diagrams, the notation, the profiles and the
+//     persistence; it is placed with the view-and-control subsystems rather than below them.
+axis lowlevel    = [org.argouml.configuration, org.argouml.i18n, org.argouml.swingext, org.argouml.taskmgmt, org.argouml.util, org.argouml.util.logging, org.argouml.util.osdep, org.argouml.application.api, org.argouml.application.events, org.argouml.application.helpers]
+axis model       = [org.argouml.model]
+axis kernel      = [org.argouml.kernel]
+axis gui         = [org.argouml.gefext, org.argouml.language.ui, org.argouml.ui, org.argouml.ui.cmd, org.argouml.ui.targetmanager]
+axis explorer    = [org.argouml.ui.explorer, org.argouml.ui.explorer.rules]
+axis diagrams    = [org.argouml.uml.diagram, org.argouml.uml.diagram.activity, org.argouml.uml.diagram.activity.layout, org.argouml.uml.diagram.activity.ui, org.argouml.uml.diagram.collaboration, org.argouml.uml.diagram.collaboration.ui, org.argouml.uml.diagram.deployment, org.argouml.uml.diagram.deployment.ui, org.argouml.uml.diagram.layout, org.argouml.uml.diagram.state, org.argouml.uml.diagram.state.ui, org.argouml.uml.diagram.static_structure, org.argouml.uml.diagram.static_structure.layout, org.argouml.uml.diagram.static_structure.ui, org.argouml.uml.diagram.ui, org.argouml.uml.diagram.use_case, org.argouml.uml.diagram.use_case.ui]
+axis panels      = [org.argouml.uml.ui, org.argouml.uml.ui.behavior.activity_graphs, org.argouml.uml.ui.behavior.collaborations, org.argouml.uml.ui.behavior.common_behavior, org.argouml.uml.ui.behavior.state_machines, org.argouml.uml.ui.behavior.use_cases, org.argouml.uml.ui.foundation.core, org.argouml.uml.ui.foundation.extension_mechanisms, org.argouml.uml.ui.model_management]
+axis uml         = [org.argouml.uml, org.argouml.uml.util, org.argouml.uml.util.namespace]
+axis notation    = [org.argouml.notation, org.argouml.notation.providers, org.argouml.notation.providers.java, org.argouml.notation.providers.uml, org.argouml.notation.ui]
+axis codegen     = [org.argouml.uml.generator, org.argouml.uml.generator.ui]
+axis reveng      = [org.argouml.uml.reveng, org.argouml.uml.reveng.ui]
+axis persistence = [org.argouml.persistence]
+axis profile     = [org.argouml.profile, org.argouml.profile.init, org.argouml.profile.internal, org.argouml.profile.internal.ocl, org.argouml.profile.internal.ocl.uml14, org.argouml.profile.internal.ui]
+axis modules     = [org.argouml.moduleloader]
+axis cognitive   = [org.argouml.cognitive, org.argouml.cognitive.checklist, org.argouml.cognitive.checklist.ui, org.argouml.cognitive.critics, org.argouml.cognitive.critics.ui, org.argouml.cognitive.ui, org.argouml.pattern.cognitive.critics, org.argouml.uml.cognitive, org.argouml.uml.cognitive.checklist, org.argouml.uml.cognitive.critics]
+axis ocl         = [org.argouml.ocl]
+axis application = [org.argouml.application, org.argouml.application.security]
+
+speed lowlevel < model < kernel, gui, explorer, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules < cognitive, ocl < application;
+
+// A decision written in the documentation: the GUI "has no knowledge of UML, Critics, Diagrams, or Model".
+hide model, diagrams, uml, panels, cognitive from gui;
+friend tests of all;
+
+// BEGIN optional: ADP, the view-and-control subsystems and the kernel kept apart from one another.
+apart kernel, gui, explorer, diagrams, panels, uml, notation, codegen, reveng, persistence, profile, modules;
+// END optional

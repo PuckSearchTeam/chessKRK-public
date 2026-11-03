@@ -1,0 +1,37 @@
+Violations:
+- hide policy from rules;
+Number of violations for the rule: 0
+- hide strategies from rules, policy;
+Number of violations for the rule: 0
+- hide valuation from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide pieces from rules, policy, strategies;
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.KING   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.QUEEN   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.ROOK   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.BISHOP   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.KNIGHT   [SRP, CCP: Move Method or Move Class into a container of the entity's axis, or Extract Class]
+   + org.chesskrk.domain.Material.isDead() --u--> org.chesskrk.domain.PieceType.BISHOP   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.domain.Material.isDead() --u--> org.chesskrk.domain.PieceType.KNIGHT   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.domain.Piece.isKing() --u--> org.chesskrk.domain.PieceType.KING   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.domain.Piece.WHITE_KING --u--> org.chesskrk.domain.PieceType.KING   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + org.chesskrk.domain.Piece.BLACK_KING --u--> org.chesskrk.domain.PieceType.KING   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 10
+- hide protocol from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide wiring from rules, policy, strategies, valuation, pieces, protocol;
+Number of violations for the rule: 0
+- separate pieces; (org.chesskrk.domain.PieceType.KING)
+Number of violations for the rule: 0
+- separate pieces; (org.chesskrk.domain.PieceType.QUEEN)
+Number of violations for the rule: 0
+- separate pieces; (org.chesskrk.domain.PieceType.ROOK)
+Number of violations for the rule: 0
+- separate pieces; (org.chesskrk.domain.PieceType.BISHOP)
+Number of violations for the rule: 0
+- separate pieces; (org.chesskrk.domain.PieceType.KNIGHT)
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 5 (5 reported above by hide clauses, 0 here)
+Total Number of violations: 10

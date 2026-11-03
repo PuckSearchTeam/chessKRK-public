@@ -1,0 +1,15 @@
+digraph  G {
+  n2 -> n7 [color=red] ;
+  n4 -> n7 [color=red] ;
+  n13 -> n7 [color=red] ;
+  n15 -> n7 [color=red] ;
+  n19 -> n7 [color=red] ;
+  n21 -> n7 [color=red] ;
+  n2 [shape=octagon,label="martin.isp.withdrawal.WithdrawalTransaction.WithdrawalTransaction"];
+  n19 [shape=octagon,label="martin.isp.deposit.DepositTransaction.DepositTransaction"];
+  n4 [shape=doubleoctagon,label="martin.isp.withdrawal.WithdrawalTransaction.ui"];
+  n21 [shape=doubleoctagon,label="martin.isp.deposit.DepositTransaction.ui"];
+  n7 [shape=box,label="martin.isp.ui.UI"];
+  n13 [shape=octagon,label="martin.isp.transfer.TransferTransaction.TransferTransaction"];
+  n15 [shape=doubleoctagon,label="martin.isp.transfer.TransferTransaction.ui"];
+}

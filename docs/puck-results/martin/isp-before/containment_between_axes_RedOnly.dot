@@ -1,0 +1,9 @@
+digraph  G {
+  n7 -> n8 [color=red, style=dotted] ;
+  n7 -> n9 [color=red, style=dotted] ;
+  n7 -> n10 [color=red, style=dotted] ;
+  n7 [shape=box,label="martin.isp.ui.UI"];
+  n8 [shape=octagon,label="martin.isp.ui.UI.requestDepositAmount"];
+  n9 [shape=octagon,label="martin.isp.ui.UI.requestWithdrawalAmount"];
+  n10 [shape=octagon,label="martin.isp.ui.UI.requestTransferAmount"];
+}

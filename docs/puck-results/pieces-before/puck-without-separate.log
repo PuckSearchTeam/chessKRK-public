@@ -1,0 +1,34 @@
+Violations:
+- hide policy from rules;
+Number of violations for the rule: 0
+- hide strategies from rules, policy;
+Number of violations for the rule: 0
+- hide valuation from rules, policy;
+Number of violations for the rule: 0
+- hide pieces from rules, policy;
+   + org.chesskrk.domain.Material.isDead() --u--> org.chesskrk.domain.PieceType.BISHOP
+   + org.chesskrk.domain.Material.isDead() --u--> org.chesskrk.domain.PieceType.KNIGHT
+   + org.chesskrk.domain.Piece.isKing() --u--> org.chesskrk.domain.PieceType.KING
+   + org.chesskrk.domain.Piece.WHITE_KING --u--> org.chesskrk.domain.PieceType.KING
+   + org.chesskrk.domain.Piece.BLACK_KING --u--> org.chesskrk.domain.PieceType.KING
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.KING
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.QUEEN
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.ROOK
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.BISHOP
+   + org.chesskrk.domain.PieceType --c--> org.chesskrk.domain.PieceType.KNIGHT
+Number of violations for the rule: 10
+- hide protocol from rules, policy;
+Number of violations for the rule: 0
+- hide wiring;
+Number of violations for the rule: 0
+- hide strategies from valuation, pieces, protocol;
+Number of violations for the rule: 0
+- hide valuation from strategies, pieces, protocol;
+Number of violations for the rule: 0
+- hide pieces from strategies, valuation, protocol;
+   + org.chesskrk.adapter.heuristic.MatingNetHeuristic.smallestBox(Position,Color,Square) --u--> org.chesskrk.domain.PieceType.QUEEN
+   + org.chesskrk.adapter.heuristic.MatingNetHeuristic.smallestBox(Position,Color,Square) --u--> org.chesskrk.domain.PieceType.ROOK
+Number of violations for the rule: 2
+- hide protocol from strategies, valuation, pieces;
+Number of violations for the rule: 0
+Total Number of violations: 12

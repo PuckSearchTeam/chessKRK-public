@@ -1,0 +1,11 @@
+// SDP, the violating version: core, used by both applications and hard to change, depends on an experimental
+// helper that is easy to change. The speed order leaves core and experimental unordered; the clause between
+// them comes from the difficulty order alone (paper, Clause 2): what is easier to change is hidden from what
+// is harder.
+axis core         = [martin.sdp.core]
+axis experimental = [martin.sdp.experimental]
+axis apps         = [martin.sdp.app1, martin.sdp.app2]
+// the speed order: the applications change more often than the core and the helper (hide apps from core, experimental)
+speed core, experimental < apps;
+// the difficulty order: experimental is easier to change than core (hide experimental from core)
+difficulty experimental < core;

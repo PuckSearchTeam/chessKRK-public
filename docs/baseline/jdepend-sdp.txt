@@ -1,0 +1,126 @@
+
+--------------------------------------------------
+- Package: martin.sdp.app1
+--------------------------------------------------
+
+Stats:
+    Total Classes: 1
+    Concrete Classes: 1
+    Abstract Classes: 0
+
+    Ca: 0
+    Ce: 1
+
+    A: 0
+    I: 1
+    D: 0
+
+Abstract Classes:
+
+Concrete Classes:
+    martin.sdp.app1.App1
+
+Depends Upon:
+    martin.sdp.core
+
+Used By:
+    Not used by any packages.
+
+--------------------------------------------------
+- Package: martin.sdp.app2
+--------------------------------------------------
+
+Stats:
+    Total Classes: 1
+    Concrete Classes: 1
+    Abstract Classes: 0
+
+    Ca: 0
+    Ce: 1
+
+    A: 0
+    I: 1
+    D: 0
+
+Abstract Classes:
+
+Concrete Classes:
+    martin.sdp.app2.App2
+
+Depends Upon:
+    martin.sdp.core
+
+Used By:
+    Not used by any packages.
+
+--------------------------------------------------
+- Package: martin.sdp.core
+--------------------------------------------------
+
+Stats:
+    Total Classes: 1
+    Concrete Classes: 1
+    Abstract Classes: 0
+
+    Ca: 2
+    Ce: 1
+
+    A: 0
+    I: 0,33
+    D: 0,67
+
+Abstract Classes:
+
+Concrete Classes:
+    martin.sdp.core.Engine
+
+Depends Upon:
+    martin.sdp.experimental
+
+Used By:
+    martin.sdp.app1
+    martin.sdp.app2
+
+--------------------------------------------------
+- Package: martin.sdp.experimental
+--------------------------------------------------
+
+Stats:
+    Total Classes: 1
+    Concrete Classes: 1
+    Abstract Classes: 0
+
+    Ca: 1
+    Ce: 0
+
+    A: 0
+    I: 0
+    D: 1
+
+Abstract Classes:
+
+Concrete Classes:
+    martin.sdp.experimental.Tuner
+
+Depends Upon:
+    Not dependent on any packages.
+
+Used By:
+    martin.sdp.core
+
+
+--------------------------------------------------
+- Package Dependency Cycles:
+--------------------------------------------------
+
+
+--------------------------------------------------
+- Summary:
+--------------------------------------------------
+
+Name, Class Count, Abstract Class Count, Ca, Ce, A, I, D, V:
+
+martin.sdp.app1,1,0,0,1,0,1,0,1
+martin.sdp.app2,1,0,0,1,0,1,0,1
+martin.sdp.core,1,0,2,1,0,0,33,0,67,1
+martin.sdp.experimental,1,0,1,0,0,0,1,1

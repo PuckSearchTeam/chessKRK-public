@@ -1,0 +1,20 @@
+digraph  G {
+  n0 -> n1 [color=red, style=dotted] ;
+  n11 -> n16 [color=red, style=dotted] ;
+  n11 -> n20 [color=red, style=dotted] ;
+  n11 -> n41 [color=red, style=dotted] ;
+  n11 -> n29 [color=red, style=dotted] ;
+  n11 -> n30 [color=red, style=dotted] ;
+  n11 -> n31 [color=red, style=dotted] ;
+  n11 -> n15 [color=red, style=dotted] ;
+  n0 [shape=folder,label="naive"];
+  n16 [shape=octagon,label="org.chesskrk.naive.Engine.squareName"];
+  n1 [shape=box,label="org.chesskrk.naive.Main"];
+  n20 [shape=octagon,label="org.chesskrk.naive.Engine.moveName"];
+  n41 [shape=doubleoctagon,label="org.chesskrk.naive.Engine.valid"];
+  n11 [shape=box,label="org.chesskrk.naive.Engine"];
+  n29 [shape=octagon,label="org.chesskrk.naive.Engine.clear"];
+  n30 [shape=octagon,label="org.chesskrk.naive.Engine.setPosition"];
+  n31 [shape=octagon,label="org.chesskrk.naive.Engine.parseFen"];
+  n15 [shape=octagon,label="org.chesskrk.naive.Engine.parseSquare"];
+}

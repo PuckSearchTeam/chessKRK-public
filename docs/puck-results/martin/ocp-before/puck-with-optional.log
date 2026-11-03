@@ -1,0 +1,9 @@
+Violations:
+- hide servers from client;
+   + martin.ocp.client.Client.run(String) --u--> martin.ocp.server.Server.serve(String)   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+   + martin.ocp.client.Client.server --u--> martin.ocp.server.Server   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 2
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 2

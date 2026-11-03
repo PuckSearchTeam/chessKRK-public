@@ -1,0 +1,17 @@
+Violations:
+- hide policy from rules;
+Number of violations for the rule: 0
+- hide strategies from rules, policy;
+Number of violations for the rule: 0
+- hide valuation from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide pieces from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide protocol from rules, policy, strategies;
+Number of violations for the rule: 0
+- hide wiring from rules, policy, strategies, valuation, pieces, protocol;
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 0

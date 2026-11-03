@@ -1,0 +1,13 @@
+Violations:
+- hide editing from kinds;
+Number of violations for the rule: 0
+- hide rendering from kinds;
+Number of violations for the rule: 0
+- hide theComposite from editing;
+   + composite.editing.Editor.addLeaf(Component,String) --u--> composite.kinds.Composite   [written clause, a decision of the architect (ADP when it directs an unordered pair): the same inversion, or revise the decision]
+   + composite.editing.Editor.addLeaf(Component,String) --u--> composite.kinds.Composite.add(Component)   [written clause, a decision of the architect (ADP when it directs an unordered pair): the same inversion, or revise the decision]
+Number of violations for the rule: 2
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 2

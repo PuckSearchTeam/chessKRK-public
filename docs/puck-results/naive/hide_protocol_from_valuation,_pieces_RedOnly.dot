@@ -1,0 +1,9 @@
+digraph  G {
+  n1 -> n19 [color=red] ;
+  n2 -> n19 [color=red] ;
+  n2 -> n21 [color=red] ;
+  n1 [shape=box,label="org.chesskrk.naive.Tablebase"];
+  n2 [shape=octagon,label="org.chesskrk.naive.Tablebase.Tablebase"];
+  n19 [shape=box,label="org.chesskrk.naive.Main"];
+  n21 [shape=octagon,label="org.chesskrk.naive.Main.send"];
+}

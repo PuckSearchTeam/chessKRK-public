@@ -1,0 +1,9 @@
+// SDP, the repaired version: core owns a Tuning interface that the experimental helper implements; the
+// applications assemble the two.
+axis core         = [martin.sdp.core]
+axis experimental = [martin.sdp.experimental]
+axis apps         = [martin.sdp.app1, martin.sdp.app2]
+// the speed order: the applications change more often than the core and the helper (hide apps from core, experimental)
+speed core, experimental < apps;
+// the difficulty order: experimental is easier to change than core (hide experimental from core)
+difficulty experimental < core;

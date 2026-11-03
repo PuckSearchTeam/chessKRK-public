@@ -1,0 +1,52 @@
+// Weland, the constraint language of Puck. This file documents the grammar; the parser
+// (WelandParser.java) is written by hand from it and the lexer (_WelandLexer.flex) with JFlex.
+//
+// Semantics (paper, Sections 4.2 and 4.3), X↓ being the effective closure of a set reference: the named
+// entities and everything they contain, minus the scopes of the entities that sets outside the reference
+// name inside them (mismatches, which belong to those sets). A reference naming several sets means their union.
+//   hide X except X' from Y but-not-from Y';   no element of Y↓ \ Y'↓ \ X↓ may use an element of X↓ \ X'↓
+//   hide X;                                     the same, from every entity of the program
+//   separate X;                                 each element named by X is hidden from every other one
+//   friend F of X;                              uses by F↓ of X↓ are never violations (X may be "all")
+// The context (paper, Section 4.3) is written with three more statements, from which clauses are generated:
+//   axis a = [...];                             an axis of change, declared like a set; its list is the tagging
+//   speed a < b < c, d;                         the speed of change, slowest first; "a < b" reads "a changes less
+//                                               often than b" and generates hide b from a, along the transitive
+//                                               closure of all the speed chains of the file
+//   difficulty X < Y;                           the difficulty to change, on sets or axes; "X < Y" reads "Y is
+//                                               harder to change than X" and generates hide X from Y, likewise
+//   apart a, b, c;                              each axis of the group hidden from the others (the ADP decision)
+// A cycle in an order is an error. The axes are those declared with "axis", or every set but "tests" in a
+// file that declares none. Besides the clauses, Puck checks that no entity of an axis contains an entity of
+// another (paper, Clause 3): the violations are the mismatches, one containment edge each (Proposition 1). Those a
+// hide clause already reports stay with it; the others, in the direction the orders permit, are reported under
+// "containment between axes".
+
+program         ::= statement*
+statement       ::= setdef | axisdef | speed-rule | difficulty-rule | apart-rule | hide-rule | separate-rule | friend-rule
+
+setdef          ::= SET setName EQUALS aSet
+axisdef         ::= AXIS setName EQUALS aSet
+setName         ::= IDENTIFIER
+aSet            ::= LSQUAREBRACKET (qualified-name (COMMA qualified-name)*)? RSQUAREBRACKET   // may be empty
+
+speed-rule      ::= SPEED chain SEMICOLON
+difficulty-rule ::= DIFFICULTY chain SEMICOLON
+chain           ::= group (LT group)+
+group           ::= setName (COMMA setName)*
+apart-rule      ::= APART group SEMICOLON
+
+hide-rule     ::= HIDE setref (EXCEPT setref)? (FROM setref (BUT_NOT_FROM setref)?)? SEMICOLON
+separate-rule ::= SEPARATE setref SEMICOLON
+friend-rule   ::= FRIEND setref OF setref SEMICOLON
+setref        ::= setName (COMMA setName)* | ALL
+
+qualified-name ::= IDENTIFIER (DOT (IDENTIFIER | keyword))*
+keyword       ::= SET | AXIS | SPEED | DIFFICULTY | APART | HIDE | EXCEPT | FROM | BUT_NOT_FROM | SEPARATE | FRIEND | OF | ALL
+
+// Tokens: the keywords set, axis, speed, difficulty, apart, hide, except, from, but-not-from, separate, friend,
+// of, all; = < [ ] , ; .
+// IDENTIFIER is a Java name, optionally followed by a parenthesized parameter list, so that a method
+// node is written Class.method(int,List<String>). Line comments start with //.
+// The set "tests" is predefined: the classes (and their members) under the test source roots of the project.
+// An empty set, "set policy = []", declares an axis of the context that has no entity yet.

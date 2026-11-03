@@ -1,0 +1,62 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>fr.lip6.move.puck4</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Puck4</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="cedric.besse@lip6.fr" url="https://www.lip6.fr">LIP6</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Puck is a tool for detecting coupling-related bad smells in Java code. Those bad smells are violations of coupling constraints defined in the Weland language in the decouple.wld file.<br>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <appStarter id="puck" implementation="fr.lip6.move.puck.cli.PuckStarter"/>
+            <fileType
+                    name="Weland File"
+                    implementationClass="fr.lip6.move.puck.parse.WelandFileType"
+                    fieldName="INSTANCE"
+                    language="Weland"
+                    extensions="wld"/>
+        <lang.parserDefinition
+                language="Weland"
+                implementationClass="fr.lip6.move.puck.parse.WelandParserDefinition"/>
+        <localInspection
+                language="JAVA"
+                displayName="Puck Inspection"
+                shortName="PuckInspection"
+                level="WARNING"
+                enabledByDefault="true"
+                implementationClass="fr.lip6.move.puck.parse.PuckInspectionTool"/>
+        <localInspection
+                language="Weland"
+                displayName="Weland Inspection"
+                shortName="wldInspection"
+                level="WARNING"
+                enabledByDefault="true"
+                implementationClass="fr.lip6.move.puck.parse.WelandInspectionTool"/>
+    </extensions>
+    <actions>
+        <action id="Puck" class="fr.lip6.move.puck.actions.PuckAction" text="Puck">
+            <add-to-group group-id="ToolsMenu" anchor="first"></add-to-group>
+        </action>
+        <action id="DecouplePermutations" class="fr.lip6.move.puck.actions.DecouplePermutationsAction" text="Puck: Create all set permutations rules">
+            <add-to-group group-id="ToolsMenu" anchor="first"></add-to-group>
+        </action>
+    </actions>
+</idea-plugin>

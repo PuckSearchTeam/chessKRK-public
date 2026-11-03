@@ -1,0 +1,14 @@
+// ArgoUML, application module (argouml-app), a first context for the feasibility run. Axes = the subsystems as
+// packages; the order is a draft to be replaced by the one the developer cookbook documents.
+axis commons     = [org.argouml.util, org.argouml.i18n, org.argouml.configuration, org.argouml.taskmgmt]
+axis model       = [org.argouml.model]
+axis kernel      = [org.argouml.kernel]
+axis profile     = [org.argouml.profile]
+axis notation    = [org.argouml.notation]
+axis persistence = [org.argouml.persistence]
+axis cognitive   = [org.argouml.cognitive]
+axis uml         = [org.argouml.uml, org.argouml.pattern.cognitive.critics, org.argouml.ocl]
+axis ui          = [org.argouml.ui, org.argouml.language.ui, org.argouml.swingext, org.argouml.gefext]
+axis application = [org.argouml.application, org.argouml.moduleloader]
+speed commons < model < kernel < profile, notation, persistence, cognitive < uml < ui < application;
+friend tests of all;

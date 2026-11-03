@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 https://pmd.github.io/schema/report_2_0_0.xsd" version="7.7.0" timestamp="2026-10-19T16:44:23.487">
+<file name="D:\repos\chessKRK\Before\src\main\java\org\chesskrk\naive\Engine.java">
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="13" rule="GodClass" ruleset="Design" package="org.chesskrk.naive" class="Engine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#godclass" priority="3">
+Possible God Class (WMC=105, ATFD=6, TCC=9.420%)
+</violation>
+<violation beginline="8" endline="8" begincolumn="8" endcolumn="13" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Engine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The class 'Engine' has a total cyclomatic complexity of 105 (highest 20).
+</violation>
+<violation beginline="8" endline="311" begincolumn="21" endcolumn="2" rule="TooManyMethods" ruleset="Design" package="org.chesskrk.naive" class="Engine" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#toomanymethods" priority="3">
+This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="102" endline="102" begincolumn="18" endcolumn="28" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Engine" method="legalMoves" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'legalMoves(int, int, int, boolean)' has a cyclomatic complexity of 20.
+</violation>
+<violation beginline="161" endline="161" begincolumn="10" endcolumn="21" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Engine" method="setPosition" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'setPosition(String)' has a cyclomatic complexity of 11.
+</violation>
+<violation beginline="190" endline="190" begincolumn="18" endcolumn="26" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Engine" method="parseFen" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'parseFen(String)' has a cyclomatic complexity of 20.
+</violation>
+<violation beginline="271" endline="271" begincolumn="12" endcolumn="20" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Engine" method="bestMove" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'bestMove()' has a cyclomatic complexity of 11.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\Before\src\main\java\org\chesskrk\naive\Main.java">
+<violation beginline="17" endline="17" begincolumn="24" endcolumn="28" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Main" method="main" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'main(String[])' has a cyclomatic complexity of 13.
+</violation>
+</file>
+<file name="D:\repos\chessKRK\Before\src\main\java\org\chesskrk\naive\Tablebase.java">
+<violation beginline="44" endline="44" begincolumn="18" endcolumn="25" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Tablebase" method="compute" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'compute()' has a cyclomatic complexity of 16.
+</violation>
+<violation beginline="102" endline="102" begincolumn="21" endcolumn="32" rule="CyclomaticComplexity" ruleset="Design" package="org.chesskrk.naive" class="Tablebase" method="blackLosses" externalInfoUrl="https://docs.pmd-code.org/pmd-doc-7.7.0/pmd_rules_java_design.html#cyclomaticcomplexity" priority="3">
+The method 'blackLosses(int)' has a cyclomatic complexity of 10.
+</violation>
+</file>
+</pmd>

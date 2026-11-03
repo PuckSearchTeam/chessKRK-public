@@ -1,0 +1,9 @@
+Violations:
+- hide export from reports;
+   + martin.adp.reports.ReportBuilder.build(String) --u--> martin.adp.export.Exporter.export(String,ReportFormat)   [written clause, a decision of the architect (ADP when it directs an unordered pair): the same inversion, or revise the decision]
+   + martin.adp.reports.ReportBuilder.exporter --u--> martin.adp.export.Exporter   [written clause, a decision of the architect (ADP when it directs an unordered pair): the same inversion, or revise the decision]
+Number of violations for the rule: 2
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 2

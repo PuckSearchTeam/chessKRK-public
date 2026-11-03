@@ -1,0 +1,22 @@
+digraph  G {
+  n367 -> n171 [color=red] ;
+  n367 -> n172 [color=red] ;
+  n148 -> n168 [color=red] ;
+  n154 -> n168 [color=red] ;
+  n155 -> n168 [color=red] ;
+  n158 -> n168 [color=red, style=dotted] ;
+  n158 -> n169 [color=red, style=dotted] ;
+  n158 -> n170 [color=red, style=dotted] ;
+  n158 -> n171 [color=red, style=dotted] ;
+  n158 -> n172 [color=red, style=dotted] ;
+  n148 [shape=octagon,label="org.chesskrk.domain.Piece.isKing"];
+  n168 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.KING"];
+  n169 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.QUEEN"];
+  n154 [shape=doubleoctagon,label="org.chesskrk.domain.Piece.WHITE_KING"];
+  n170 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.ROOK"];
+  n171 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.BISHOP"];
+  n155 [shape=doubleoctagon,label="org.chesskrk.domain.Piece.BLACK_KING"];
+  n172 [shape=doubleoctagon,label="org.chesskrk.domain.PieceType.KNIGHT"];
+  n158 [shape=box,label="org.chesskrk.domain.PieceType"];
+  n367 [shape=octagon,label="org.chesskrk.domain.Material.isDead"];
+}

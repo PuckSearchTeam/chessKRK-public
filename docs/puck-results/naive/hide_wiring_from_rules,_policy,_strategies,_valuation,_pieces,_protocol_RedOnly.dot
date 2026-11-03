@@ -1,0 +1,11 @@
+digraph  G {
+  n19 -> n22 [color=red, style=dotted] ;
+  n19 -> n23 [color=red, style=dotted] ;
+  n20 -> n23 [color=red] ;
+  n21 -> n22 [color=red] ;
+  n19 [shape=box,label="org.chesskrk.naive.Main"];
+  n20 [shape=octagon,label="org.chesskrk.naive.Main.main"];
+  n21 [shape=octagon,label="org.chesskrk.naive.Main.send"];
+  n22 [shape=doubleoctagon,label="org.chesskrk.naive.Main.OUT"];
+  n23 [shape=doubleoctagon,label="org.chesskrk.naive.Main.ENGINE"];
+}

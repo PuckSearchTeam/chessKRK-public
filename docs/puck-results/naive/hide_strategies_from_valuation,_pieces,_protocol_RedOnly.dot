@@ -1,0 +1,7 @@
+digraph  G {
+  n2 -> n34 [color=red] ;
+  n2 -> n35 [color=red] ;
+  n2 [shape=octagon,label="org.chesskrk.naive.Main.main"];
+  n34 [shape=octagon,label="org.chesskrk.naive.Engine.tablebase"];
+  n35 [shape=octagon,label="org.chesskrk.naive.Engine.bestMove"];
+}

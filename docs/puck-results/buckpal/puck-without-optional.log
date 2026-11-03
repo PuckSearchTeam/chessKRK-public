@@ -1,0 +1,22 @@
+Violations:
+- hide ports from model;
+Number of violations for the rule: 0
+- hide commons from model, ports;
+   + io.reflectoring.buckpal.application.port.in.SendMoneyCommand.SendMoneyCommand(AccountId,AccountId,Money) --u--> io.reflectoring.buckpal.common.validation.Validation.validate(T)   [OCP, DIP: Extract Interface into the user's axis and redirect the use; Introduce Parameter or a factory for an instantiation]
+Number of violations for the rule: 1
+- hide services from model, ports, commons;
+Number of violations for the rule: 0
+- hide web from model, ports, commons, services;
+Number of violations for the rule: 0
+- hide persistence from model, ports, commons, services;
+Number of violations for the rule: 0
+- hide wiring from model, ports, commons, services, web, persistence;
+Number of violations for the rule: 0
+- separate ports; (io.reflectoring.buckpal.application.port.in)
+Number of violations for the rule: 0
+- separate ports; (io.reflectoring.buckpal.application.port.out)
+Number of violations for the rule: 0
+- containment between axes
+Number of violations for the rule: 0
+Axis mismatches: 0 (0 reported above by hide clauses, 0 here)
+Total Number of violations: 1

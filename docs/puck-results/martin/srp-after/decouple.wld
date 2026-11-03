@@ -1,0 +1,5 @@
+// Martin's SRP example, the repaired version: draw() moved to a RectangleView of the user-interface axis.
+axis geometry = [martin.srp.geometry]
+axis ui       = [martin.srp.ui]
+// the speed order; it generates hide ui from geometry
+speed geometry < ui;

@@ -1,0 +1,6 @@
+// Martin's Shape example (OCP chapter), the repaired version: an abstract Shape owned by the rendering axis, which each kind implements.
+// Two axes: the shapes, which change more often (new kinds come) than the rendering.
+axis rendering = [martin.shapes.rendering]
+axis shapes    = [martin.shapes.shapes]
+// the speed order; it generates hide shapes from rendering
+speed rendering < shapes;

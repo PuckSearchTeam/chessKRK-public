@@ -1,0 +1,21 @@
+chessKRK: a UCI engine for pawnless chess endings, built as the case study of
+the paper on the "hide what varies" meta-principle, with its ArchUnit rules,
+the naive version (Before/) and its refactoring (After/), Martin's examples as
+code (Examples/), the external oracles (Oracles/), the scripts and the docs.
+Copyright (C) 2025-2026 Cédric Besse, LIP6 (Sorbonne Université, CNRS).
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not
+use these files except in compliance with the License. See the LICENSE file
+in this directory. Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Exceptions:
+
+- Puck/ (the Puck plugin) is distributed under the GNU General Public License,
+  version 3 or later: see Puck/LICENSE and Puck/NOTICE.
+- The manuscript of the paper is not software and is not covered by the
+  License; it is not part of the published repository.
+- docs/puck-results/buckpal and docs/puck-results/library hold constraint files
+  and logs of runs on third-party programs; the programs themselves are not
+  redistributed (see their SOURCE.txt).

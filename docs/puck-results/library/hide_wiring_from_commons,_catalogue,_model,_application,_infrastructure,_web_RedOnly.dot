@@ -1,0 +1,25 @@
+digraph  G {
+  n13 -> n14 [color=red, style=dotted] ;
+  n22 -> n23 [color=red, style=dotted] ;
+  n36 -> n37 [color=red, style=dotted] ;
+  n81 -> n190 [color=red, style=dotted] ;
+  n143 -> n521 [color=red, style=dotted] ;
+  n143 -> n547 [color=red, style=dotted] ;
+  n162 -> n163 [color=red, style=dotted] ;
+  n224 -> n225 [color=red, style=dotted] ;
+  n224 [shape=folder,label="web"];
+  n225 [shape=box,label="io.pillopl.library.lending.patronprofile.web.WebConfiguration"];
+  n162 [shape=folder,label="infrastructure"];
+  n547 [shape=box,label="io.pillopl.library.catalogue.CatalogueDatabaseConfig"];
+  n163 [shape=box,label="io.pillopl.library.lending.patron.infrastructure.PatronConfiguration"];
+  n36 [shape=folder,label="infrastructure"];
+  n37 [shape=box,label="io.pillopl.library.lending.dailysheet.infrastructure.DailySheetConfiguration"];
+  n521 [shape=box,label="io.pillopl.library.catalogue.CatalogueConfiguration"];
+  n13 [shape=folder,label="infrastructure"];
+  n14 [shape=box,label="io.pillopl.library.lending.patronprofile.infrastructure.PatronProfileConfiguration"];
+  n143 [shape=folder,label="catalogue"];
+  n81 [shape=folder,label="infrastructure"];
+  n22 [shape=folder,label="publisher"];
+  n23 [shape=box,label="io.pillopl.library.commons.events.publisher.DomainEventsConfig"];
+  n190 [shape=box,label="io.pillopl.library.lending.book.infrastructure.BookConfiguration"];
+}
