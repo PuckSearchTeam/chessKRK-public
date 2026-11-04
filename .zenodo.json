@@ -1,0 +1,29 @@
+{
+  "title": "chessKRK: a Clean Architecture UCI engine for pawnless endings, with the Puck plugin and the case study of \"Hide What Varies\"",
+  "description": "A UCI chess engine for pawnless endings (Java 21, Maven), built as the case study of the paper \"Hide What Varies: The Context Behind the SOLID and Package Principles\" (M. Ziane, C. Besse, Y. Thierry-Mieg), submitted to the Journal of Systems and Software. The archive holds the engine and its ArchUnit rules, a naive version and its refactoring with the equivalence check, the constraint files written in Weland, the Puck plugin for IntelliJ that checks them, the log of every Puck run reported in the paper, Martin's examples as code, the external oracles (jMolecules), the ArgoUML history study and the scripts that reproduce every run. The manuscript is not included.",
+  "creators": [
+    {
+      "name": "Ziane, Mikal",
+      "affiliation": "Université Paris Cité; LIP6, CNRS, Sorbonne Université, Paris, France",
+      "orcid": "0000-0003-1860-485X"
+    },
+    {
+      "name": "Besse, Cédric",
+      "affiliation": "LIP6, CNRS, Sorbonne Université, Paris, France"
+    }
+  ],
+  "license": "Apache-2.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "software architecture",
+    "architecture conformance checking",
+    "design principles",
+    "SOLID",
+    "coupling",
+    "cohesion",
+    "refactoring"
+  ],
+  "language": "eng",
+  "notes": "Apache License 2.0, except Puck/ (GNU GPL 3 or later): see NOTICE and Puck/LICENSE."
+}
