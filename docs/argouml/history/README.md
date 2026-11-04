@@ -57,3 +57,5 @@ invisible to commit-level co-change; the context is the wiki's layering declared
 ranking; the whole history is pooled, the code of 2000 and of 2022 alike, which the per-class-year reading only
 partly corrects; the violating pairs come from Puck's graph and the permitted ones from import statements, two
 extractors.
+
+- `permutation.py` (2026-11-04): a permutation test of the three readings against the declared order, 100,000 random total orders of the seventeen axes; results at the end of `results.md`.

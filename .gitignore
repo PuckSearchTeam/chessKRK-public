@@ -51,3 +51,5 @@ Article/latexmk.out
 Examples/Composite/*/puck*.log
 Examples/Composite/*/graph.json
 Article/main-check.*
+# Published articles kept for reference (copyrighted: never committed, never exported)
+relevant_articles/

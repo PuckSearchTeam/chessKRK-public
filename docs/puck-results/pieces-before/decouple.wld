@@ -23,7 +23,7 @@ friend tests of all;    // the tests are neither wiring nor an axis
 
 // BEGIN optional: ADP. Keeping the three unordered axes apart hides each from the others, so no pair is
 // permitted in both directions, the permitted relation between axes is acyclic and every cycle of uses
-// through two axes contains a violation (paper, Proposition 2).
+// through two axes contains a violation (paper, Proposition 1).
 apart valuation, pieces, protocol;
 // END optional: ADP
 

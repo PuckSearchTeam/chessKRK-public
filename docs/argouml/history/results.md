@@ -138,3 +138,17 @@ Import edges between classes of the subject: 3706; across axes: 2336, of which n
 | permitted dependencies across axes (imports) | 2135 | 55 % | 0.021 / 0.007 | 9 % | 1.29 | 0.128 |
 | dependencies inside an axis (imports) | 1370 | 71 % | 0.044 / 0.029 | 13 % | 2.33 | 0.229 |
 | random cross-axis pairs without dependency | 5000 | 5 % | 0.002 / 0.000 | 0 % | 0.07 | 0.008 |
+
+## Permutation test of the three readings against the declared order (2026-11-04, `permutation.py`)
+
+The declared chain has 69 ordered pairs in its transitive closure. Over 100,000 random total orders of the seventeen
+axes (seed 2026) the agreement with those pairs has mean 34.5 and standard deviation 9.7 (the pairs are correlated:
+twelve axes sit in one unordered group). Observed agreements and one-sided tail probabilities:
+
+| reading | agrees | P(random >= observed) | P(random <= observed) |
+|---|---|---|---|
+| touches per class | 56 | 0.013 | 0.991 |
+| touches per class-year | 34 | 0.540 | 0.500 |
+| share of commits | 24 | 0.867 | 0.157 |
+
+The per-class reading is above chance; the two others are at chance.
