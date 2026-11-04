@@ -35,7 +35,7 @@ subsystems were clearly defined".
 | `decouple-iteration2.wld` | the same, with three mapping decisions the wiki leaves open: the Explorer a subsystem of its own (the wiki says so), `org.argouml.application.{api,events,helpers}` infrastructure rather than top level (they are the plug-in interfaces every subsystem uses), the kernel (no wiki page) with the view-and-control subsystems | 894 | 5,089 |
 
 Logs: `puck-iteration1-*.log`, `puck-iteration2-*.log`. No axis mismatch in any run: the tags are packages. `packages.txt`
-lists the 78 packages, `axes.map` the prefix-to-subsystem assignment of iteration 1 and `axis-lines-generated.txt` its
+lists the 78 packages (`org.argouml.model` was missing until 2026-11-04, see `history/README.md`), `axes.map` the prefix-to-subsystem assignment of iteration 1 and `axis-lines-generated.txt` its
 result (a package name does not include its subpackages in Weland, so every package is listed).
 
 What the 894 of iteration 2 are, by clause:
@@ -54,6 +54,14 @@ With the optional block (the view-and-control subsystems and the kernel kept apa
 5,093 (5,089 on the run of 2026-10-19; the four edges that differ come from anonymous classes, whose owner the graph
 builder resolves differently between runs, `null.run()`, `null.targetAdded(TargetEvent)`): the GUI used by the others 1,295 times, the kernel 1,157, the diagrams 554, the notation 402, the panels 288: the
 view-and-control layer uses itself freely, the kernel (`Project`) and the GUI being its hubs.
+
+Within one launch too, the with-optional run has three more lines than the without-optional run under two
+generated clauses that the optional block does not change (`hide cognitive from lowlevel, ...`: 326 against 325;
+the GUI clause: 527 against 525): `persistence.TodoParser.handleIssueEnd --> cognitive.ResolvedCritic.ResolvedCritic(String, List)`
+and `ui.targetmanager.TargetManager.Remover.addListener / removeListener --> model.ModelEventPump.addModelEventListener /
+removeModelEventListener`, a constructor and an inner class the graph builder resolves differently between runs (found on
+2026-11-04). The paper's 894 / 369 / 525 are from the without-optional log, its 5,093 from the
+with-optional one, and its Threats section records the drift.
 
 Iteration 1's 2,890 differ from iteration 2's 894 by: 739 uses of the model by the explorer (the GUI clause no longer
 covers it), 965 uses of `application.{api,events,helpers}` by everyone (now infrastructure), about 250 uses by the
@@ -76,7 +84,11 @@ contexts from the file and the package list; a third adds `apart` within each la
 
 The 363 uses only the exact encoding reports are decisions neither an order nor acyclicity expresses; `pairs-exact.txt`
 has the counts per module pair: `gui -> model` 174 (the wiki's statement) and `critics -> gui` 104 account for 278 of
-them. Twenty-five packages are outside the published mapping (the kernel, `org.argouml.uml` and its property panels,
+them. The file is written by `pairs-exact.py puck-exact.log argouml.sysmdl` (2026-11-04), which assigns packages to
+modules by the sysmdl's own regular expressions; the earlier file used a plain prefix, which put the plug-in interfaces
+`org.argouml.application.{api,modules}` (moduleLoader in the architecture) into `application`, hence its
+`application -> application 46`, in fact `moduleLoader -> application` (the module loader using `Main` and the events).
+The totals the paper cites (1,547; 174; 104) are unchanged; the rows that involve `application` or `moduleLoader` are. Twenty-five packages are outside the published mapping (the kernel, `org.argouml.uml` and its property panels,
 the utilities, the critics of `org.argouml.uml.cognitive`); four modules of the architecture have no package in 0.24
 (profile, help, taskManagement, configuration). Runs take about 35 seconds each.
 

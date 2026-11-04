@@ -42,8 +42,8 @@ to say on the naive engine at all: one package, so no layering to state.
   | application.usecase | 1 | 3 | 0.75 |
   | infrastructure | 0 | 8 | 1.00 |
 
-  The metric follows the declared speed order on every pair but one: it puts the strategies (0.75) above the adapters
-  (0.67), less stable, whereas the order ranks them below the adapters since 2026-10-19, as Clean Architecture ranks
+  The metric follows the declared speed order except on the strategies: it puts them (0.75) above the adapter axes
+  (0.67 and 0.50), less stable, whereas the order ranks them below the adapters since 2026-10-19, as Clean Architecture ranks
   use cases below adapters. The disagreement is expected: the metric is a snapshot count of dependents, which says
   nothing of how often a search method changes (paper, Sections 4.3 and 5.1).
 - The naive engine has one package, so the metric is undefined for it.

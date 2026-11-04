@@ -70,7 +70,7 @@ of findings 3 (6), 4 (4) and 5 (2). With the optional block, the three unordered
 another, it reports **29**: the three edges of finding 6. The test class is left out of the rules by
 `friend tests of all;` (tests are neither *wiring* nor an axis; `tests` is a predefined set, the classes under the
 test source roots). Finding 7, the cycle, is not an edge; it is read off findings 3, 6 and the permitted use of the
-strategy by `Main.main`, by Proposition 2, which applies once the optional block makes the permitted relation acyclic.
+strategy by `Main.main`, by Proposition 1, which applies once the optional block makes the permitted relation acyclic.
 Every violation line ends with the repair of Table 3 (`[SRP, CCP: …]`, `[OCP, DIP: …]`, `[OCP, DIP, between axes
 kept apart: …]`).
 

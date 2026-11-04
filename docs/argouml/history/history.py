@@ -120,21 +120,44 @@ for h, date, cls in commits:
     if len(cls) > MASS: continue
     for c in cls: class_commits[c].add(h)
 
-def cochange(pairs):
-    """Conditional measures (Jaccard; 'follows', the share of the commits changing the used class in which the user
-    changes too) and absolute ones (commits changing both, in all and per year of the pair's life)."""
-    jac = []; follow = []; absolute = []; per_year = []; ever = 0; usable = 0
+MEASURES = ("Jaccard", "follows", "commits changing both", "per year")
+
+def measures(pairs):
+    """Per usable pair, the four measures as a tuple: the conditional ones (Jaccard; 'follows', the share of the
+    commits changing the used class in which the user changes too) and the absolute ones (commits changing both, in
+    all and per year of the pair's life)."""
+    rows = []
     for s, t in pairs:
         cs, ct = class_commits.get(s), class_commits.get(t)
         if not cs or not ct: continue
-        usable += 1
         both = len(cs & ct)
-        jac.append(both / len(cs | ct)); follow.append(both / len(ct))
-        absolute.append(both); per_year.append(both / years({s, t}))
-        if both: ever += 1
+        rows.append((both / len(cs | ct), both / len(ct), both, both / years({s, t})))
+    return rows
+
+def cochange(rows):
+    usable = len(rows)
     if not usable: return "no usable pair"
+    jac, follow, absolute, per_year = (list(col) for col in zip(*rows))
+    ever = sum(1 for j in jac if j)
     return (f"{usable} | {100 * ever / usable:.0f} % | {statistics.mean(jac):.3f} / {statistics.median(jac):.3f} | "
             f"{100 * statistics.mean(follow):.0f} % | {statistics.mean(absolute):.2f} | {statistics.mean(per_year):.3f}")
+
+# --- bootstrap of the pairs: percentile intervals for the four means of each row, and for the differences
+BOOT = 10000
+def boot_means(rows, rng):
+    """BOOT resamples of the pairs, with replacement; the four means of each resample."""
+    n = len(rows); out = []
+    for _ in range(BOOT):
+        sample = rng.choices(rows, k=n)
+        out.append(tuple(sum(col) / n for col in zip(*sample)))
+    return out
+
+def ci(values, lo=0.025, hi=0.975):
+    s = sorted(values); return s[int(lo * len(s))], s[min(len(s) - 1, int(hi * len(s)))]
+
+def fmt(lo, hi, k):
+    if k == 1: return f"{100 * lo:.0f} % to {100 * hi:.0f} %"
+    return f"{lo:.3f} to {hi:.3f}" if k != 2 else f"{lo:.2f} to {hi:.2f}"
 
 violating = set()
 for line in open(puck_log, encoding='utf-8', errors='replace'):
@@ -168,11 +191,29 @@ while len(unrelated) < 5000:
     s, t = random.sample(all_classes, 2)
     if axis_of_class(s) != axis_of_class(t) and (s, t) not in imports: unrelated.add((s, t))
 gui = {(s, t) for s, t in violating if axis_of_class(s) == 'gui'}   # the written clause, not against the speed order
+groups = [("violating uses against the speed order (the generated clauses)", measures(violating - gui)),
+          ("violating uses of the written GUI clause (not against the order)", measures(gui)),
+          ("all violating uses", measures(violating)),
+          ("permitted dependencies across axes (imports)", measures(permitted)),
+          ("dependencies inside an axis (imports)", measures(same_axis)),
+          ("random cross-axis pairs without dependency", measures(unrelated))]
 print("\n| pairs | n | co-changed at least once | Jaccard mean / median | user follows the used class | commits changing both, mean | per year of the pair's life |")
 print("|---|---|---|---|---|---|---|")
-print(f"| violating uses against the speed order (the generated clauses) | {cochange(violating - gui)} |")
-print(f"| violating uses of the written GUI clause (not against the order) | {cochange(gui)} |")
-print(f"| all violating uses | {cochange(violating)} |")
-print(f"| permitted dependencies across axes (imports) | {cochange(permitted)} |")
-print(f"| dependencies inside an axis (imports) | {cochange(same_axis)} |")
-print(f"| random cross-axis pairs without dependency | {cochange(unrelated)} |")
+for label, rows in groups: print(f"| {label} | {cochange(rows)} |")
+
+rng = random.Random(2026)
+boots = {label: boot_means(rows, rng) for label, rows in groups}
+print(f"\n### Bootstrap of the pairs ({BOOT} resamples with replacement, seed 2026): 95 % percentile intervals of the means\n")
+print("| pairs | n | Jaccard | user follows the used class | commits changing both | per year |")
+print("|---|---|---|---|---|---|")
+for label, rows in groups:
+    cells = [fmt(*ci([b[k] for b in boots[label]]), k) for k in range(4)]
+    print(f"| {label} | {len(rows)} | " + " | ".join(cells) + " |")
+print("\nDifferences of means, first row minus second, same resamples:\n")
+print("| difference | Jaccard | user follows the used class | commits changing both | per year |")
+print("|---|---|---|---|---|")
+ref = groups[3][0]
+for label in (groups[0][0], groups[1][0], groups[2][0], groups[4][0]):
+    diffs = [tuple(a[k] - b[k] for k in range(4)) for a, b in zip(boots[label], boots[ref])]
+    cells = [fmt(*ci([d[k] for d in diffs]), k) for k in range(4)]
+    print(f"| {label} minus {ref} | " + " | ".join(cells) + " |")

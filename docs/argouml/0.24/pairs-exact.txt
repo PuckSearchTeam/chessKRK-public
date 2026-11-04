@@ -1,53 +1,55 @@
-    228 gui -> application
+    176 gui -> moduleLoader
     174 gui -> model
-    144 diagrams -> application
+    137 diagrams -> application
     104 critics -> gui
-     85 notation -> application
-     81 reverseEngineering -> application
+     89 reverseEngineering -> moduleLoader
      68 gui -> critics
      62 reverseEngineering -> diagrams
+     55 gui -> application
      53 explorer -> diagrams
      52 diagrams -> critics
+     52 notation -> moduleLoader
      46 gui -> persistence
-     46 application -> application
+     46 moduleLoader -> application
      42 persistence -> critics
      34 gui -> diagrams
+     33 notation -> application
      33 persistence -> diagrams
      30 reverseEngineering -> gui
      29 swingExtensions -> gui
      19 gui -> explorer
-     18 swingExtensions -> application
-     13 persistence -> application
-     13 explorer -> application
-     12 notation -> gui
-     12 javaCodeGeneration -> critics
-     12 gui -> notation
+     18 swingExtensions -> moduleLoader
+     13 persistence -> moduleLoader
      12 critics -> swingExtensions
+     12 gui -> notation
+     12 javaCodeGeneration -> critics
+     12 notation -> gui
+     11 explorer -> moduleLoader
      10 codeGeneration -> application
       9 diagrams -> reverseEngineering
-      8 swingExtensions -> internationalization
-      8 reverseEngineering -> moduleLoader
       8 ocl -> internationalization
-      6 reverseEngineering -> explorer
-      6 javaCodeGeneration -> notation
-      6 explorer -> notation
+      8 swingExtensions -> internationalization
+      7 diagrams -> moduleLoader
       6 critics -> application
+      6 explorer -> notation
+      6 javaCodeGeneration -> notation
+      6 reverseEngineering -> explorer
+      5 moduleLoader -> persistence
+      5 moduleLoader -> reverseEngineering
       5 persistence -> gui
-      5 application -> reverseEngineering
-      4 reverseEngineering -> critics
-      4 persistence -> ocl
-      4 moduleLoader -> gui
-      4 internationalization -> application
-      4 diagrams -> explorer
       4 critics -> internationalization
-      4 ? -> gui
-      3 gui -> moduleLoader
-      3 application -> persistence
-      2 swingExtensions -> persistence
-      2 reverseEngineering -> ocl
-      2 moduleLoader -> persistence
-      2 javaCodeGeneration -> ocl
+      4 diagrams -> explorer
+      4 internationalization -> moduleLoader
+      4 moduleLoader -> gui
+      4 other -> gui
+      4 persistence -> ocl
+      4 reverseEngineering -> critics
+      2 explorer -> application
       2 javaCodeGeneration -> application
-      2 application -> diagrams
+      2 javaCodeGeneration -> ocl
+      2 moduleLoader -> diagrams
+      2 reverseEngineering -> ocl
+      2 swingExtensions -> persistence
+      1 other -> persistence
       1 reverseEngineering -> persistence
-      1 ? -> persistence
+   1547 total

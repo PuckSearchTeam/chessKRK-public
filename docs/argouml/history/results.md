@@ -127,17 +127,37 @@ Ranking by touches per class-year: modules < ocl < cognitive < profile < lowleve
 
 ## Co-change
 
-Violated uses of the context (iteration 2, without the optional block) as class pairs: 209
-Import edges between classes of the subject: 3706; across axes: 2336, of which not violating (permitted): 2135; inside an axis: 1370
+Violated uses of the context (iteration 2, without the optional block) as class pairs: 255
+Import edges between classes of the subject: 4514; across axes: 3144, of which not violating (permitted): 2919; inside an axis: 1370
 
 | pairs | n | co-changed at least once | Jaccard mean / median | user follows the used class | commits changing both, mean | per year of the pair's life |
 |---|---|---|---|---|---|---|
-| violating uses against the speed order (the generated clauses) | 95 | 46 % | 0.020 / 0.000 | 7 % | 1.12 | 0.108 |
-| violating uses of the written GUI clause (not against the order) | 114 | 49 % | 0.016 / 0.000 | 9 % | 1.67 | 0.149 |
-| all violating uses | 209 | 48 % | 0.017 / 0.000 | 8 % | 1.42 | 0.130 |
-| permitted dependencies across axes (imports) | 2135 | 55 % | 0.021 / 0.007 | 9 % | 1.29 | 0.128 |
+| violating uses against the speed order (the generated clauses) | 102 | 44 % | 0.019 / 0.000 | 6 % | 1.06 | 0.102 |
+| violating uses of the written GUI clause (not against the order) | 153 | 41 % | 0.012 / 0.000 | 7 % | 1.28 | 0.115 |
+| all violating uses | 255 | 42 % | 0.015 / 0.000 | 7 % | 1.19 | 0.110 |
+| permitted dependencies across axes (imports) | 2919 | 44 % | 0.016 / 0.000 | 7 % | 0.98 | 0.098 |
 | dependencies inside an axis (imports) | 1370 | 71 % | 0.044 / 0.029 | 13 % | 2.33 | 0.229 |
 | random cross-axis pairs without dependency | 5000 | 5 % | 0.002 / 0.000 | 0 % | 0.07 | 0.008 |
+
+### Bootstrap of the pairs (10000 resamples with replacement, seed 2026): 95 % percentile intervals of the means
+
+| pairs | n | Jaccard | user follows the used class | commits changing both | per year |
+|---|---|---|---|---|---|
+| violating uses against the speed order (the generated clauses) | 102 | 0.013 to 0.025 | 4 % to 8 % | 0.76 to 1.39 | 0.074 to 0.133 |
+| violating uses of the written GUI clause (not against the order) | 153 | 0.008 to 0.016 | 5 % to 10 % | 0.76 to 1.92 | 0.073 to 0.166 |
+| all violating uses | 255 | 0.011 to 0.018 | 5 % to 9 % | 0.86 to 1.59 | 0.082 to 0.142 |
+| permitted dependencies across axes (imports) | 2919 | 0.015 to 0.017 | 6 % to 7 % | 0.91 to 1.06 | 0.091 to 0.105 |
+| dependencies inside an axis (imports) | 1370 | 0.041 to 0.047 | 13 % to 14 % | 2.12 to 2.56 | 0.210 to 0.248 |
+| random cross-axis pairs without dependency | 5000 | 0.002 to 0.002 | 0 % to 1 % | 0.06 to 0.08 | 0.006 to 0.009 |
+
+Differences of means, first row minus second, same resamples:
+
+| difference | Jaccard | user follows the used class | commits changing both | per year |
+|---|---|---|---|---|
+| violating uses against the speed order (the generated clauses) minus permitted dependencies across axes (imports) | -0.003 to 0.009 | -3 % to 2 % | -0.23 to 0.42 | -0.025 to 0.036 |
+| violating uses of the written GUI clause (not against the order) minus permitted dependencies across axes (imports) | -0.008 to 0.000 | -2 % to 3 % | -0.22 to 0.94 | -0.026 to 0.068 |
+| all violating uses minus permitted dependencies across axes (imports) | -0.005 to 0.002 | -1 % to 2 % | -0.13 to 0.62 | -0.017 to 0.045 |
+| dependencies inside an axis (imports) minus permitted dependencies across axes (imports) | 0.025 to 0.032 | 6 % to 8 % | 1.12 to 1.58 | 0.111 to 0.151 |
 
 ## Permutation test of the three readings against the declared order (2026-11-04, `permutation.py`)
 
@@ -152,3 +172,18 @@ twelve axes sit in one unordered group). Observed agreements and one-sided tail 
 | share of commits | 24 | 0.867 | 0.157 |
 
 The per-class reading is above chance; the two others are at chance.
+
+## The GUI's direct uses of the model against the model API's changes (2026-11-04, `api-cochange.py`)
+
+The question: were the GUI classes that use the model directly the ones touched when the model's API changed? The API is the top-level package `org.argouml.model` (the facade, factory and helper interfaces); an API commit adds or removes a method signature or a type declaration there (a changed signature counts; private methods do not; mass commits left out). For each class, over the commits within its lifetime, the share of the API commits in which it changes against the share of the other commits in which it changes; the ratio says how much more the class follows the API than everything else. Groups: the 13 GUI classes of the 174 violated `gui -> model` uses of version 0.24; the 16 GUI classes of the 205 uses of the written GUI clause into the model at head; the 613 permitted users of the model at head (import it, outside the GUI and the low-level axes); the 113 GUI classes at head that do not import the model. Intervals: 10,000 bootstrap resamples of the classes, seed 2026.
+
+commits touching main code, mass commits left out: 10794; touching org.argouml.model's top-level package: 782; of which API commits (a signature or a type declaration added or removed): 491, from 2002-08-04 to 2020-07-09
+
+| classes | n | with a usable history | changes in an API commit | changes in another commit | ratio (95 % bootstrap) | touched by at least one API commit |
+|---|---|---|---|---|---|---|
+| GUI classes of the violated gui -> model uses, version 0.24 | 13 | 13 | 0.6 % | 0.7 % | 0.93 (0.55 to 1.67) | 77 % |
+| GUI classes of the GUI clause's violated uses into the model, head | 16 | 15 | 0.3 % | 0.6 % | 0.40 (0.16 to 0.64) | 40 % |
+| permitted users of the model (import it, outside the GUI and the low-level axes), head | 613 | 611 | 0.4 % | 0.3 % | 1.28 (1.14 to 1.42) | 49 % |
+| GUI classes that do not import the model, head | 113 | 113 | 0.0 % | 0.2 % | 0.10 (0.03 to 0.19) | 6 % |
+
+Reading: the GUI classes on the violating pairs change in the API commits no more than in any other commit (ratios 0.93 and 0.40, the permitted users 1.28); a dependency into the model shows against the GUI classes without one (0.10), its direction against the written clause does not, as in the co-change table. Thirteen classes carry the 174 uses of 0.24, so the first interval is wide.

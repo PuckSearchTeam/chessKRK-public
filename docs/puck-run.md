@@ -26,7 +26,7 @@ clauses only, still works: every set but `tests` is then an axis.
 speed chain, from which Puck generates the six clauses of the Dependency Rule, two decisions of the architect
 (`friend wiring of all;`, `friend tests of all;`), and an **optional block** between `// BEGIN optional` and
 `// END optional`, one `apart` statement over the four unordered axes, which makes the permitted relation
-between axes acyclic and brings ADP in (paper, Proposition 2). Puck reads `decouple.wld` at the project's base path and collects every
+between axes acyclic and brings ADP in (paper, Proposition 1). Puck reads `decouple.wld` at the project's base path and collects every
 `.java` file below it, tests included. The kept results of the runs of 2026-10-06 are in `docs/puck-results/`
 (`puck-with-optional.log`, `puck-without-optional.log` and the violation-only `.dot` graphs of each run, with the
 constraint file they were produced from).
@@ -237,7 +237,7 @@ The clauses on `policy` and `pieces` hold vacuously.
 case).
 
 Finding 7 (the cycle strategies → valuation → protocol → strategies) is not an edge; it is read off findings 3, 6 and the
-permitted use of the strategy by `Main.main`, by Proposition 2, which the optional block is what makes applicable.
+permitted use of the strategy by `Main.main`, by Proposition 1, which the optional block is what makes applicable.
 
 So the Dependency Rule alone finds the cohesion defects (through the context), the strategy's uses of the tablebase and
 of the protocol, and the dependency on the composition; the tablebase printing through `Main` and the cycle are found

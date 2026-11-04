@@ -14,6 +14,7 @@ org.argouml.gefext
 org.argouml.i18n
 org.argouml.kernel
 org.argouml.language.ui
+org.argouml.model
 org.argouml.moduleloader
 org.argouml.notation
 org.argouml.notation.providers
