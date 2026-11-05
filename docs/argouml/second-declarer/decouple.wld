@@ -1,0 +1,130 @@
+// Context of ArgoUML (application module + Model subsystem, 78 packages) for Puck, declared from the
+// developers' Cookbook pages only (wiki/, chapter 4 "The Big Picture" and chapter 5, one page per subsystem).
+// One axis per documented subsystem, plus three axes for packages no page claims (kernel, umlcommon, util)
+// and two placed by name next to the documented "Swing extensions" (gefext, logging). Sub-packages follow
+// their subsystem's package: "Subparts of the subsystem can reside in subdirectories" (02-Definition).
+// Every decision the wiki does not make is marked "decision:".
+
+// ---- Layer <<Low-level subsystems>> (06): "they are not using any other part of ArgoUML ... nor between them".
+axis i18n          = [org.argouml.i18n]                       // 17: "Located org.argouml.i18n"
+axis taskmgmt      = [org.argouml.taskmgmt]                   // 29 gives no package; decision: by name
+axis configuration = [org.argouml.configuration]              // 12 says "org.argouml.blablabla"; decision: by name
+axis swingext      = [org.argouml.swingext]                   // 06 lists "Swing extensions", no page; decision: by name
+axis model         = [org.argouml.model]                      // 20: "Located org.argouml.model" (only its interface package is in the subject)
+axis logging       = [org.argouml.util.logging]               // 19 names no package; decision: the one package named logging,
+                                                              // taken out of util because 19 is a documented subsystem
+axis util          = [org.argouml.util, org.argouml.util.osdep]   // no page; decision: utilities, placed low-level by name
+axis gefext        = [org.argouml.gefext]                     // no page; decision: extensions of the external GEF library,
+                                                              // placed like swingext (04: gef is an external subsystem)
+
+// ---- Undocumented middle: packages named by several pages but owned by none.
+axis kernel        = [org.argouml.kernel]                     // named "the kernel subsystem" (25), "the kernel package" (26),
+                                                              // org.argouml.kernel.Project (10), .Wizard (13); no page, no layer
+axis umlcommon     = [org.argouml.uml, org.argouml.uml.util, org.argouml.uml.util.namespace]
+                                                              // decision: the parent package of the uml.* subsystems and its
+                                                              // utilities; common UML-level code, no page
+
+// ---- Layer <<View and Control subsystems>> (07).
+axis gui           = [org.argouml.ui, org.argouml.ui.cmd, org.argouml.ui.targetmanager]
+                                                              // 30: "Located org.argouml.ui"; targetmanager "shall be a part of
+                                                              // the GUI subsystem"; ui.cmd: decision, sub-package of org.argouml.ui
+axis explorer      = [org.argouml.ui.explorer, org.argouml.ui.explorer.rules]
+                                                              // 15: "org.argouml.ui.explorer and sub-packages"; its own subsystem in 07
+axis diagrams      = [org.argouml.uml.diagram, org.argouml.uml.diagram.ui, org.argouml.uml.diagram.layout,
+                      org.argouml.uml.diagram.activity, org.argouml.uml.diagram.activity.layout, org.argouml.uml.diagram.activity.ui,
+                      org.argouml.uml.diagram.collaboration, org.argouml.uml.diagram.collaboration.ui,
+                      org.argouml.uml.diagram.deployment, org.argouml.uml.diagram.deployment.ui,
+                      org.argouml.uml.diagram.state, org.argouml.uml.diagram.state.ui,
+                      org.argouml.uml.diagram.static_structure, org.argouml.uml.diagram.static_structure.layout,
+                      org.argouml.uml.diagram.static_structure.ui,
+                      org.argouml.uml.diagram.use_case, org.argouml.uml.diagram.use_case.ui]
+                                                              // 14: "Located org.argouml.uml.diagram"; the split per diagram
+                                                              // type is only "an intention", so one axis
+axis proppanels    = [org.argouml.uml.ui,
+                      org.argouml.uml.ui.behavior.activity_graphs, org.argouml.uml.ui.behavior.collaborations,
+                      org.argouml.uml.ui.behavior.common_behavior, org.argouml.uml.ui.behavior.state_machines,
+                      org.argouml.uml.ui.behavior.use_cases,
+                      org.argouml.uml.ui.foundation.core, org.argouml.uml.ui.foundation.extension_mechanisms,
+                      org.argouml.uml.ui.model_management]
+                                                              // 27 says "org.argouml.uml.?"; decision: org.argouml.uml.ui, the
+                                                              // package 10, 15, 23 and 28 name for tabs, panels and UML actions
+axis notation      = [org.argouml.notation, org.argouml.notation.providers, org.argouml.notation.providers.java,
+                      org.argouml.notation.providers.uml, org.argouml.notation.ui]
+                                                              // 22: "org.argouml.notation and its sub-folders"
+axis codegen       = [org.argouml.uml.generator, org.argouml.uml.generator.ui, org.argouml.language.ui]
+                                                              // 11: located org.argouml.language, API in org.argouml.uml.generator;
+                                                              // decision: both, language.ui being a sub-package of org.argouml.language
+axis reveng        = [org.argouml.uml.reveng, org.argouml.uml.reveng.ui]   // 28: "Package Name org.argouml.uml.reveng"
+axis moduleloader  = [org.argouml.moduleloader]               // 21: "Located org.argouml.moduleloader"; layer "?" there, V&C in 07
+axis persistence   = [org.argouml.persistence]                // 25: "Located org.argouml.persistence", layer V&C (absent from 07's list)
+axis profile       = [org.argouml.profile, org.argouml.profile.init, org.argouml.profile.internal,
+                      org.argouml.profile.internal.ocl, org.argouml.profile.internal.ocl.uml14, org.argouml.profile.internal.ui]
+                                                              // 26: "org.argouml.profile and its sub-packages", layer V&C (absent from 07)
+
+// ---- Layer <<Loadable subsystems>> (08).
+axis critics       = [org.argouml.cognitive, org.argouml.cognitive.ui, org.argouml.cognitive.critics, org.argouml.cognitive.critics.ui,
+                      org.argouml.cognitive.checklist, org.argouml.cognitive.checklist.ui,
+                      org.argouml.uml.cognitive, org.argouml.uml.cognitive.critics, org.argouml.uml.cognitive.checklist,
+                      org.argouml.pattern.cognitive.critics]
+                                                              // 13: "Located org.argouml.cognitive"; critics also in
+                                                              // org.argouml.uml.cognitive.critics and org.argouml.pattern.cognitive.critics;
+                                                              // 31: To Do items are "a set of classes in the Cognitive subsystem".
+                                                              // decision: org.argouml.uml.cognitive and .checklist by name (UML checklists)
+axis ocl           = [org.argouml.ocl]                        // 23: "Located org.argouml.ocl"
+
+// ---- Layer <<Top Level subsystem>> (09): "no other ArgoUML subsystem depends on the top level".
+axis application   = [org.argouml.application, org.argouml.application.api, org.argouml.application.events,
+                      org.argouml.application.helpers, org.argouml.application.security]
+                                                              // 10: "Located org.argouml.application"; sub-packages by the
+                                                              // subdirectory rule of 02 (application.api is named by 21 as the old
+                                                              // plug-in interfaces, "replaced")
+
+// ---- Speed of change: the four layers of chapter 4, slowest first. Low-level: "All other ArgoUML packages may
+// depend on them, but there are no dependencies upwards" (06). Loadable: "connected only through the interfaces
+// provided by other subsystems" (08), so nothing below uses them. Top level "depends on other ArgoUML subsystems,
+// but no other ArgoUML subsystem depends on the top level" (09).
+// decision: kernel and umlcommon, which no layer page places, sit in the View-and-Control group: kernel "knows the
+// user models" (26) so it is above the low-level Model, and persistence, a V&C subsystem, uses it (25).
+speed i18n, taskmgmt, configuration, swingext, model, logging, util, gefext
+    < kernel, umlcommon, gui, explorer, diagrams, proppanels, notation, codegen, reveng, moduleloader, persistence, profile
+    < critics, ocl
+    < application;
+
+// ---- Rules the wiki states between subsystems.
+// 06: low-level subsystems have "no dependencies ... between them" (the six it documents; util and gefext are
+// placed there by name only, so their independence is optional, below).
+apart i18n, taskmgmt, configuration, swingext, model, logging;
+// 25: "the persistence subsystem depends on the kernel subsystem, and not vice versa".
+hide persistence from kernel;
+// 30: the GUI "has no knowledge of UML, Critics, Diagrams, or Model".
+hide model, diagrams, critics from gui;
+// decision: "UML" in that sentence, Model being listed separately, is read as ArgoUML's UML-specific code,
+// the org.argouml.uml.* subsystems other than Diagrams, already named.
+hide proppanels, codegen, reveng, umlcommon from gui;
+// 30: the TargetManager "shall be a part of the GUI subsystem, and should not be used anywhere outside the GUI
+// subsystem" (the page notes the Project uses it and "this needs refactoring"). decision: the Explorer counts as
+// inside the GUI subsystem for this rule, since 30 lists it among the GUI's own parts (org.argouml.ui.explorer).
+set targetmanager = [org.argouml.ui.targetmanager]
+hide targetmanager from all but-not-from gui, explorer;
+
+friend tests of all;    // the tests are under their own source root and are no axis
+
+// BEGIN optional
+// Implied, not stated. Checked separately.
+// MVC: the views and tools work on the project (10: the ProjectBrowser sets the project; 26: the settings tabs edit
+// the kernel's ProfileConfiguration; 30: the Project's use of the TargetManager "needs refactoring"), so the kernel
+// should change less often than them. profile is left out: 26 says the kernel's ProfileConfiguration holds profiles.
+speed kernel < gui, explorer, diagrams, proppanels, notation, codegen, reveng;
+// The common UML code should not use the specific uml.* subsystems (by the names only).
+speed umlcommon < diagrams, proppanels, codegen, reveng;
+// 22: a change "has been performed to resolve dependency cycles" and the NotationRenderer callback interface lets
+// the notation reach its Fig without knowing Diagrams, which uses Notation (14): notation below diagrams.
+speed notation < diagrams;
+// 30: a dependency "between org.argouml.ui and the org.argouml.some-package is less desired" for subsystems split
+// into some-package and some-package.ui (the figure is missing): the two such subsystems not already hidden from gui.
+hide notation, profile from gui;
+// 28: "no other subsystem needs to access it ... The only entry point is ... org.argouml.uml.ui.ActionImportFromSources".
+hide reveng from all but-not-from proppanels;
+// The independence of the low-level layer (06) extended to the two axes placed there by name.
+apart util, gefext, i18n, taskmgmt, configuration, swingext, model, logging;
+// END optional

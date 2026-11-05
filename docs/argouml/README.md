@@ -67,6 +67,15 @@ Iteration 1's 2,890 differ from iteration 2's 894 by: 739 uses of the model by t
 covers it), 965 uses of `application.{api,events,helpers}` by everyone (now infrastructure), about 250 uses by the
 kernel of the diagrams (111), the notation (74), the profiles (51), `uml`, persistence and the GUI (now unordered with them).
 
+## A second, independent declaration (`second-declarer/`, 2026-11-05)
+
+A dry run of the agreement measure: a fresh session of the assistant, given the wiki pages, the package list and the
+grammar and nothing else, declared the context blind (`second-declarer/decouple.wld`, `notes.md`, the brief verbatim);
+Puck ran on it (2,473 uses without its optional block, 2,856 with); `compare.py` measures the agreement with the
+declarations above (partition: adjusted Rand index 0.89 against `decouple-iteration2.wld`; hidden package pairs:
+kappa 0.78; 97 % of the 849 distinct uses of the paper are violations under it too). `second-declarer/README.md` has
+the protocol, the table and the reading. The paper's Threats section reports this run in one sentence.
+
 ## Version 0.24 under the published architecture (`0.24/`)
 
 Brunet, Bittencourt, Serey and Figueiredo (WCRE 2012) wrote an intended architecture and a mapping of ArgoUML 0.24
